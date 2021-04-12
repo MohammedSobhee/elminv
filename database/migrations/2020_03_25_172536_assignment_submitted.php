@@ -16,6 +16,7 @@ class AssignmentSubmitted extends Migration
         //
         Schema::create('assignment_submitted', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }
