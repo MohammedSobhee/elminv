@@ -14,6 +14,11 @@ class ActivityLog extends Migration
     public function up()
     {
         //
+        Schema::create('activity_log', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->longText('description')->unique()->nullable();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -24,5 +29,7 @@ class ActivityLog extends Migration
     public function down()
     {
         //
+        Schema::dropIfExists('activity_log');
+
     }
 }
