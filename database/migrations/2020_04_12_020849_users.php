@@ -17,6 +17,7 @@ class Users extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->boolean('status')->default(true);
+            $table->string('password')->nullable();
             $table->timestamps();
         });
     }
