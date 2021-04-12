@@ -16,6 +16,7 @@ class CreateAssignmentClasses extends Migration
         Schema::create('assignment_classes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('class_id');
+            $table->integer('assignment_id');
             $table->tinyInteger('status');
             $table->timestamps();
         });
