@@ -14,6 +14,10 @@ class AssignmentSubmitted extends Migration
     public function up()
     {
         //
+        Schema::create('assignment_submitted', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -24,5 +28,7 @@ class AssignmentSubmitted extends Migration
     public function down()
     {
         //
+        Schema::dropIfExists('assignment_submitted');
+
     }
 }
