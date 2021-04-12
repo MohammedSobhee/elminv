@@ -21,6 +21,7 @@ class CreateGradesTable extends Migration
             $table->Integer('category_id');
             $table->Integer('points');
             $table->Integer('user_id');
+            $table->string('message');
             $table->timestamps();
         });
     }
