@@ -1,0 +1,169 @@
+.form-school em.error {
+  margin-top: 0;
+}
+
+//
+// Lists on home
+// --------------------------------------------------------------------------
+.eduadmin-lists .list-group-item {
+  font-size: .9rem;
+}
+
+//
+// Notes editor color
+// --------------------------------------------------------------------------
+.eduadmin .editor__content {
+  color: $black;
+}
+
+//
+// Form modifications
+// --------------------------------------------------------------------------
+.eduadmin {
+  label {
+    position: relative;
+    font-size: .9rem;
+    color: $dark-gray;
+  }
+
+  label:not(.label-status) {
+    padding-right: 1.2rem;
+  }
+}
+
+//
+// Color code status check mark that appears after code submitted
+// --------------------------------------------------------------------------
+.color-code-status {
+  position: absolute;
+  top: .7rem;
+  left: -.75rem;
+  font-size: .7rem;
+  color: $secondary;
+}
+
+.color-code-select {
+  position: relative;
+  top: .1rem;
+
+  .multiselect__single span {
+    border-radius: 3px;
+  }
+
+  .multiselect__select {
+    display: none;
+  }
+
+  .multiselect__tags {
+    text-align: center;
+    padding: 3px !important;
+  }
+
+}
+
+//
+// Sub nav
+// --------------------------------------------------------------------------
+.nav-eduadmin {
+  @include media-breakpoint-down(lg) {
+    font-size: .9rem;
+
+    .nav-link {
+      padding: .2rem .5rem;
+
+      span {
+        display: none;
+      }
+    }
+  }
+
+  .nav-item.active .nav-link {
+    color: $black;
+    background-color: $white-gray;
+
+    &:after {
+      position: absolute;
+      color: $white-gray;
+      top: 1.34rem;
+      left: 0;
+      width: 100%;
+      display: block;
+      text-align: center;
+      font-family: $font-icons-free;
+      font-weight: bold;
+      content: '\f0d7';
+    }
+
+    @include media-breakpoint-down(lg) {
+      &:after {
+        top: 1.15rem;
+      }
+    }
+  }
+
+  .nav-link {
+    border-radius: $global-radius;
+    position: relative;
+    padding: .23rem 1rem;
+  }
+}
+
+//
+// Doc viewer
+// --------------------------------------------------------------------------
+.eduadmin-pdfviewer {
+  width: 100%;
+  height: 70vh;
+}
+
+.eduadmin-docviewer {
+  margin: 0 auto;
+}
+
+
+.progress-eduadmin-wrapper {
+  position: absolute;
+  top: -.72rem;
+  left: -.02rem;
+  width: 100%;
+  max-width: 100%;
+}
+
+//
+// Search by Algolia logo
+// --------------------------------------------------------------------------
+.search-by-algolia {
+  position: relative;
+  top: 5rem;
+  width: 100px;
+  height: auto;
+}
+
+//
+// Standards
+// --------------------------------------------------------------------------
+.multiselect-standards {
+  min-height: 39px;
+}
+
+//
+//
+// --------------------------------------------------------------------------
+// .form-edit {
+//   label {
+//     margin-bottom: 0;
+//   }
+
+//   .form-control {
+//     border: 0;
+//     border-radius: 0;
+//     padding-left: 0;
+//     border-bottom: dotted 1px $input-border-color;
+
+//     &:focus {
+//       padding: $input-padding-y $input-padding-x;
+//       border: solid 1px $input-border-color;
+//       border-radius: $global-radius;
+//     }
+//   }
+// }

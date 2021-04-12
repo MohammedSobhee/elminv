@@ -1,0 +1,597 @@
+.gradebook {
+  h4 .badge {
+    position: relative;
+    top: -.1rem;
+    font-size: 60%;
+  }
+
+  // .multiselect .badge-pending {
+  //   // color: darken($orange, 5%);
+
+  //   // color: $dark-secondary;
+  //   // border: solid $light2-secondary 1px;
+  //   // background-color: $light3-secondary;
+
+  //   // color: darken($orange, 15%);
+  //   // background-color: lighten($orange, 40%);
+  //   // border: solid lighten($orange, 30%) 1px;
+  // }
+
+  .multiselect .badge-pill {
+    padding-right: .5em;
+    padding-left: .5em;
+  }
+
+  .notification-wrapper .notification {
+    top: 2px;
+  }
+
+
+
+  position: relative;
+
+  // .accordion .card.collapse-selected .card-icon {
+  //   color: $heading-text-color1;
+  //   background-color: $white;
+  // }
+
+  .loading-circle {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+    border-left-color: $gray;
+  }
+
+  .fa-sign-in-alt {
+    color: $gray;
+
+    &:hover {
+      color: $medium-gray;
+    }
+  }
+
+  .selected {
+    color: $primary !important;
+  }
+
+  .card-text {
+    position: relative;
+    top: .1rem;
+  }
+
+  .card-toggler {
+    float: left;
+  }
+
+  .link-usertype {
+    color: $medium-gray;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  .link,
+  .link-primary {
+    cursor: pointer;
+    font-size: .7rem;
+    color: $medium-gray;
+    margin-left: .5rem;
+    text-decoration: underline;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  .link-primary {
+    color: $primary;
+
+    &.text-secondary {
+      text-decoration: none;
+    }
+
+    .text-grade {
+      font-size: .75rem;
+      color: $dark-secondary;
+    }
+
+    &:hover {
+      color: $dark-primary;
+    }
+  }
+
+  .fas {
+    cursor: pointer;
+  }
+
+
+  .text-graded-name {
+    color: $medium-gray;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  .list-group-item-assignment:hover .text-graded-name {
+    color: $primary;
+  }
+
+  // Unlock
+  .list-group-item .fa-lock {
+    cursor: pointer;
+    color: $gray;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  //
+  // Dropdown Class Edit
+  // --------------------------------------------------------------------------
+  .dropdown-class-edit {
+    font-size: .9rem;
+    position: relative;
+    top: .35rem;
+    right: .2rem;
+    float: right;
+
+    .dropdown-menu {
+      font-size: .9rem;
+    }
+
+    .fa-bars {
+      color: $gray;
+    }
+  }
+
+  //
+  // Team / Individual selection  'buttons'
+  // --------------------------------------------------------------------------
+  .list-group-item-button {
+    font-size: .8rem;
+    color: $medium-gray;
+
+    .badge-pill {
+      padding-top: .25rem;
+      position: relative;
+      line-height: 1;
+      top: -.05rem;
+      float: none;
+    }
+
+    &:hover {
+      color: $primary;
+
+      .badge-secondary {
+        background-color: $primary;
+      }
+    }
+  }
+
+
+  //
+  //
+  // --------------------------------------------------------------------------
+  .list-group-item-atype {
+    position: absolute;
+    right: 33%;
+    display: inline-block;
+  }
+
+  //
+  //
+  // --------------------------------------------------------------------------
+  .list-group-item-label-project {
+    color: $dark-gray;
+  }
+
+
+
+  //
+  //
+  // --------------------------------------------------------------------------
+  .list-group-flush .list-group-item {
+    padding-left: 0;
+    padding-right: 0;
+    //font-size: .85rem;
+    border-style: dotted;
+    border-color: $light-gray;
+
+    &:hover {
+      background-color: $white;
+    }
+  }
+
+
+  //
+  // Multiselect
+  // --------------------------------------------------------------------------
+  .multiselect {
+    display: inline-block;
+    width: auto;
+  }
+
+  .multiselect__single {
+    //top: .1rem;
+    color: $primary;
+    //font-size: .8rem !important;
+  }
+
+  .multiselect-user {
+    min-width: 8rem;
+  }
+
+  .multiselect-filter {
+    min-width: 5rem;
+  }
+}
+
+
+
+//
+//  Grading List Actions
+// --------------------------------------------------------------------------
+.list-group-item-grading {
+  overflow: visible;
+  position: relative;
+  top: .1rem;
+
+  @include media-breakpoint-up(lg) {
+    float: right;
+    display: inline-block;
+  }
+
+  .grading-item {
+    padding: 0 5px;
+  }
+
+  .graded-item {
+    margin-right: .5rem;
+  }
+
+  //
+  // Grading icons
+  // --------------------------------------------------------------------------
+  .fas,
+  .far {
+    position: relative;
+    top: .1rem;
+  }
+
+  .fa-times {
+    left: -.3rem;
+    font-size: 115%;
+    color: $gray;
+
+    &:hover {
+      color: $danger;
+    }
+  }
+
+  .fa-edit {
+    top: 0;
+  }
+
+  .fa-edit,
+  .fa-comment-alt {
+    color: $gray;
+
+    &:hover {
+      color: $primary !important;
+    }
+  }
+
+  .fa-comment-alt {
+    color: $faded-primary;
+  }
+}
+
+.list-group-item:hover {
+  > .list-group-item-grading .fa-edit,
+  > .list-group-item-grading .graded-item {
+    color: $primary;
+  }
+}
+
+.list-group-item .list-group-item-grading:hover {
+  .fa-edit {
+    color: $gray;
+  }
+}
+
+
+//
+//  Grading Menu / Form
+// --------------------------------------------------------------------------
+.menu-grade {
+  position: relative;
+  min-height: 28px;
+  clear: both;
+  top: 0;
+  left: 0;
+  padding-top: .5rem;
+  color: $medium-gray;
+  font-size: .75rem;
+  align-items: center;
+
+  @include media-breakpoint-up(xl) {
+    clear: none;
+    display: inline-flex;
+    padding-top: 0;
+    margin-left: .5rem;
+    float: right;
+  }
+
+
+
+  .fa-user {
+    font-size: 115%;
+
+    @include media-breakpoint-down(lg) {
+      margin-right: .5rem;
+    }
+  }
+
+  .fa-users {
+    position: relative;
+    top: .01rem;
+    font-size: 126%;
+  }
+}
+
+.menu-single {
+  display: inline-block;
+  color: $primary;
+  padding-top: .2rem;
+  padding-bottom: .2rem;
+}
+
+.menu-grade-label {
+  display: none;
+
+  @include media-breakpoint-up(md) {
+    margin: 0 .2rem 0 0;
+    display: inline-block;
+  }
+
+  @include media-breakpoint-up(xl) {
+    margin: 0 .2rem 0 .5rem;
+  }
+}
+
+.menu-grade-form {
+  display: inline-block;
+
+  @include media-breakpoint-up(xl) {
+    margin-left: .5rem;
+  }
+}
+
+
+//
+// Filter Menu
+// --------------------------------------------------------------------------
+.filter-all {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+  font-size: .9rem;
+  color: $medium-gray;
+
+  .filter-all-item {
+    display: block;
+    padding: .35rem 0;
+
+    .multiselect {
+      display: block;
+    }
+
+    @include media-breakpoint-up(xl) {
+      display: inline-block;
+      padding: 0;
+      margin-left: .35rem;
+    }
+  }
+
+  a {
+    margin-left: .3rem;
+    text-decoration: underline;
+  }
+}
+
+
+//
+// Popover fix
+// --------------------------------------------------------------------------
+.accordion > .card {
+  overflow: visible;
+}
+
+//
+//
+// --------------------------------------------------------------------------
+.grade-message {
+  float: left;
+  max-width: 40%;
+  color: $dark-secondary;
+}
+
+//
+// Grading Assignments
+// --------------------------------------------------------------------------
+.gb-assignment {
+  //margin-top: -5rem;
+  z-index: 9999;
+}
+
+.gb-assignment-form {
+  position: relative;
+  top: .5rem;
+  border: solid #c8ced6 1px;
+  border-radius: $global-radius;
+  margin: 0 auto 2rem;
+  width: 25rem;
+
+  // arrow
+  &::after,
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 47%;
+    width: 0;
+    height: 0;
+    border-style: solid;
+  }
+
+  &::after {
+    bottom: -30px;
+    border-color: $white transparent transparent;
+    border-width: 15px;
+  }
+
+  &::before {
+    bottom: -31px;
+    border-color: #c8ced6 transparent transparent;
+    border-width: 15px;
+  }
+
+  // Header
+  &-header {
+    border-top-left-radius: $global-radius;
+    border-top-right-radius: $global-radius;
+    background-color: $white-gray;
+    padding: .5rem .85rem;
+
+    h3 {
+      color: $primary;
+      text-align: center;
+      margin: 0;
+      font-size: 1rem;
+
+      span {
+        font-weight: normal;
+      }
+    }
+  }
+
+  // Body
+  &-body {
+    border-bottom-left-radius: $global-radius;
+    border-bottom-right-radius: $global-radius;
+    background-color: $white;
+    padding: .5rem 1rem;
+  }
+}
+
+
+.gb-assignment-buttons {
+  padding-bottom: 1rem;
+
+  @include media-breakpoint-up(md) {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80%;
+  }
+}
+
+
+.gb-assignment-input {
+  margin: .5rem auto 0;
+
+  @include media-breakpoint-up(md) {
+    max-width: 80%;
+  }
+
+  input {
+    color: $secondary;
+    font-weight: bold;
+    text-align: center;
+
+    &:focus {
+      color: $secondary;
+    }
+
+    &::placeholder {
+      color: $gray;
+    }
+  }
+}
+
+
+//
+// Editor message
+// --------------------------------------------------------------------------
+.gb-assignment-message {
+  .editor__buttons {
+    top: -2.75rem;
+  }
+
+  .editor__button {
+    line-height: 1.3;
+    font-size: .75rem;
+    padding: .15rem .5rem;
+  }
+}
+
+
+//
+// Grading overlay
+// --------------------------------------------------------------------------
+.gb-assignment {
+  .page-overlay-btns {
+    text-align: center;
+  }
+}
+
+.gb-assignment-pdfviewer {
+  width: 100%;
+  height: 85vh;
+}
+
+.gb-assignment-screenshot {
+  width: 100%;
+  margin: 0 auto 2rem;
+
+  @include media-breakpoint-up(lg) {
+    width: 800px;
+  }
+
+
+  img {
+    width: 100%;
+    height: auto;
+    border: solid darken($gray, 5%) 1px;
+    box-shadow: 2px 2px 3px 1px rgba(217, 223, 233, .6);
+  }
+}
+
+.gb-assignment-screenshot-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40vh;
+}
+
+.gb-assignment-docviewer {
+  margin: 0 auto;
+}
+
+//
+// Reset button
+// --------------------------------------------------------------------------
+.btn-reset-gradebook {
+  margin-top: .5rem;
+  padding: .13rem .5rem;
+  font-size: .75rem !important;
+  position: relative;
+  top: -1px;
+
+  @include media-breakpoint-up(xl) {
+    margin-top: 0;
+  }
+}

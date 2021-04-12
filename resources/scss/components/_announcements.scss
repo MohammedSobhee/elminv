@@ -1,0 +1,55 @@
+//
+// WP Announcements
+// --------------------------------------------------------------------------
+.announcements  {
+  padding-bottom: 5rem;
+
+  &:first-of-type {
+    padding-top: 1rem;
+  }
+
+  &:last-of-type {
+    border: 0;
+    padding-bottom: 0;
+  }
+
+  &-unread {
+    color: $dark-secondary;
+  }
+
+  &-unread-icon {
+    position: relative;
+    top: -.2rem;
+    color: $white;
+    background-color: $secondary;
+    border-radius: $global-radius-sm;
+    padding: .2rem .3rem;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: .75rem;
+  }
+
+
+  &-title {
+    border-top: solid $hr-color 1px;
+    padding-top: 1rem;
+    // border-bottom: solid $hr-color 1px;
+
+    a {
+      color: $black;
+    }
+  }
+
+  .elementor-row .elementor-column:first-of-type >.elementor-element-populated,
+  .elementor-row .elementor-column:last-of-type >.elementor-element-populated {
+    padding-left: 0;
+  }
+}
+
+.excerpt a {
+  color: $black;
+
+  &:hover {
+    text-decoration: none;
+  }
+}

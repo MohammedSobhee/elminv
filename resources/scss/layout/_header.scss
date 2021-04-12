@@ -1,0 +1,56 @@
+//
+// Header
+// --------------------------------------------------------------------------
+.header {
+  //z-index: 999;
+  width: 100%;
+  //overflow: auto;
+  @include clearfix;
+
+  // * {
+  //   transition: all 200ms ease-in-out;
+  // }
+
+  .logo {
+    position: relative;
+    margin: .6rem 0 .6rem 1rem;
+    display: block;
+    float: left;
+    background: url('../images/layout/logo_ili_icon_fff.png') 50% 50% / 55% no-repeat;
+    width: 50px;
+    height: 35px;
+    padding: .5rem;
+
+    @include media-breakpoint-up(md) {
+      margin: 0;
+      background-size: 35%;
+      width: 100px;
+      height: 56px;
+    }
+
+    &.login {
+      margin: .6rem 0 .6rem 1rem;
+      background: url('../images/layout/logo_ili_fff.png') 50% 50% / 90% no-repeat;
+      width: 180px;
+      height: 37px;
+    }
+
+    &.deactivated:hover {
+      background-color: $primary;
+    }
+  }
+}
+
+
+//
+// Sticky Transitions
+// --------------------------------------------------------------------------
+// .header.sticky-transition {
+//   position: fixed;
+
+//   .logo {
+//     width: 65px;
+//     height: 35px;
+//     margin-left: 35px;
+//   }
+// }

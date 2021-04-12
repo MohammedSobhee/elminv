@@ -1,0 +1,61 @@
+//
+// Sort Menu
+// --------------------------------------------------------------------------
+.sort-menu {
+  min-height: 30px;
+
+  color: $medium-gray;
+
+  @include media-breakpoint-up(lg) {
+    text-align: right;
+  }
+
+  .btn-wrapper {
+    display: inline-block;
+  }
+
+  .popover-dialogue {
+    bottom: 2.5rem;
+    right: -1rem;
+
+    &::after {
+      right: 4rem;
+    }
+  }
+
+  .wrapper {
+    display: inline-block;
+    margin: 0;
+    list-style: none;
+    transition: all .5s;
+    padding: .2rem 1rem .2rem 0;
+
+    li {
+      cursor: pointer;
+      display: inline-block;
+      line-height: 1;
+
+      &:first-of-type .link {
+        border-left: 0;
+      }
+
+      &:last-of-type .link {
+        padding-right: 0;
+      }
+    }
+  }
+
+  .link {
+    display: inline-block;
+    padding: 0 .4rem 0 .7rem;
+    background-color: transparent;
+    text-decoration: none;
+    color: $dark-gray;
+    border-left: solid $gray 1px;
+
+    &:hover,
+    &.active {
+      color: $primary;
+    }
+  }
+}

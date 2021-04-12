@@ -1,0 +1,45 @@
+//
+// Window resize corrections
+// --------------------------------------------------------------------------
+EDIL.resizeFix = function() {
+    var $sidebarDupe = '';
+    var $mobileSidebar = '';
+
+    $(window).on('resize', function() {
+        // Is Desktop
+        if (!EDIL.isMobile()) {
+            // Header - reposition nav items
+            EDIL.$logoutLink.insertAfter($('.nav-123sof3dprinting', '#header'));
+            EDIL.$supportLink.insertAfter(EDIL.$logoutLink);
+            EDIL.$headerNav.show();
+
+            // Sidebar - remove mobile sidebar
+            $mobileSidebar = $('.mobile-sidebar-top') || 0;
+            if ($mobileSidebar.length) {
+                $mobileSidebar.remove();
+                EDIL.$sidebar.removeClass('mobile-sidebar');
+                EDIL.$sidebar.find('h3').off('click');
+                EDIL.$sidebar.find('.sidebar-menu').show();
+            }
+
+            // Sticky Desktop Sidebar - Create sidebar dupe and assign its relative left offset to sidebar
+            if (!$sidebarDupe.length) {
+                EDIL.$sidebar.before(
+                    '<section class="sidebar-dupe"></section>'
+                );
+                $sidebarDupe = $('.sidebar-dupe');
+            } else if (!EDIL.isAdmin && !EDIL.isMobile()) {
+                EDIL.$sidebar.css({
+                    left: $sidebarDupe.offset().left,
+                    width: $sidebarDupe.width()
+                });
+            }
+
+            // Is Mobile
+        } else {
+            EDIL.$sidebar.css({ left: '', width: '' });
+            EDIL.mobileSidebar();
+            EDIL.$headerNav.append($(EDIL.$supportLink), $(EDIL.$logoutLink));
+        }
+    });
+};

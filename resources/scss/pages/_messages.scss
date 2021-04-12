@@ -1,0 +1,45 @@
+.messages {
+
+  .message {
+    border-radius: $global-radius;
+    position: relative;
+    font-size: .9rem;
+  }
+
+  .messages-date {
+    position: relative;
+    top: -.5rem;
+  }
+
+  .messages-content {
+    color: darken($dark-gray, 10%);
+  }
+
+  .messages-content p:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .messages-actions {
+    cursor: pointer;
+    position: absolute;
+    top: .5rem;
+    right: .2rem;
+  }
+
+  .card-icon {
+    color: darken($gray, 10%);
+  }
+
+  .card-icon:hover {
+    background-color: $light-gray;
+
+    .far,
+    .fas {
+      color: $medium-gray;
+    }
+
+    .fa-trash-alt {
+      color: $danger;
+    }
+  }
+}

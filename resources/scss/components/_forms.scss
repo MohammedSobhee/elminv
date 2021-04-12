@@ -1,0 +1,804 @@
+//
+// Forms using labels as status
+// --------------------------------------------------------------------------
+.form-label-status {
+  .saved-data {
+    //color: $primary;
+
+    &:after {
+      color: $secondary;
+      font-family: $font-icons-free;
+      font-weight: bold;
+      font-size: .7rem;
+      margin-left: .4rem;
+      content: '\f00c';
+    }
+  }
+
+  span.saved-data {
+    position: absolute;
+    top: -.1rem;
+    right: 0;
+  }
+}
+
+//
+// Flatpicker delete icon style
+// --------------------------------------------------------------------------
+.date-input {
+  position: relative;
+
+  .input-icon {
+    position: absolute;
+    top: .6rem;
+    right: .75rem;
+  }
+
+  &.date-input-sm .input-icon {
+    position: absolute;
+    top: .45rem;
+    right: .65rem;
+  }
+}
+
+
+
+//
+// Input icon (typically for date-input)
+// --------------------------------------------------------------------------
+.input-icon {
+  color: $gray;
+
+  &:hover {
+    color: $primary;
+  }
+}
+
+input:hover {
+  +.input-icon {
+    color: $primary;
+  }
+}
+
+
+//
+// Custom Controls
+// --------------------------------------------------------------------------
+// Active - Checked
+.custom-control-input-active:checked ~ .custom-control-label {
+  color: $dark-secondary;
+
+  &::before {
+    background-color: $secondary;
+    border-color: darken($secondary, 5%);
+  }
+}
+
+// Delete - label
+.custom-control-input-delete ~ .custom-control-label {
+  color: $medium-gray;
+}
+
+// Delete checked
+.custom-control-input-delete:checked ~ .custom-control-label {
+  color: $danger;
+
+  &::before {
+    background-color: $danger;
+    border-color: darken($danger, 5%);
+  }
+}
+
+// Highlight
+.custom-control-input-highlight ~ .custom-control-label {
+  color: $black;
+}
+
+// Disabled
+.custom-control-input:disabled ~ .custom-control-label {
+  color: darken($gray, 5%) !important;
+
+  &::before {
+    background-color: $white;
+    border-color: $gray;
+  }
+}
+
+.custom-checkbox .custom-control-input:checked:disabled ~ .custom-control-label {
+  &::before {
+    background-color: $white-gray;
+    border-color: $gray;
+  }
+}
+
+
+.form-control-sm.placeholder-sm::placeholder {
+  font-size: .8rem;
+}
+
+//
+// Form completed
+// --------------------------------------------------------------------------
+.form-completed {
+  &:after {
+    display: block;
+    padding-right: 1rem;
+    font-size: .7rem;
+    color: $secondary;
+    background: transparent get-icon(checkmark, $secondary) 100% 50% / 11px no-repeat;
+    content: 'Saved';
+    position: absolute;
+    top: .5rem;
+    right: 1rem;
+
+  }
+}
+
+.form-completed {
+  display: inline-block;
+  clear: both;
+
+  &:after {
+    top: -1.8rem;
+    left: 0;
+    right: 0;
+    font-size: 1rem;
+    background-position: 18% 50%;
+    background-size: 1rem;
+  }
+}
+
+
+//
+// Form group
+// --------------------------------------------------------------------------
+.form-group {
+  input[type=checkbox].saved:checked+label:before,
+  input[type=radio].saved:checked+label:before {
+    background-color: lighten($light2-secondary, 5%);
+  }
+
+  input[type=checkbox].saved:checked+label:after,
+  input[type=radio].saved:checked+label:after {
+    background: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%227.692%22%20height%3D%225.894%22%20viewBox%3D%220%200%207.692%205.894%22%3E%3Ctitle%3Eicons%3C/title%3E%3Cpath%20d%3D%22M7.552%201.488L3.96%205.08l-.675.674a.48.48%200%200%201-.676%200l-.675-.674-1.8-1.8a.48.48%200%200%201%200-.676L.81%201.93a.48.48%200%200%201%20.675%200l1.46%201.463L6.2.137a.484.484%200%200%201%20.676%200l.674.674a.476.476%200%200%201%200%20.677z%22%20fill%3D%22%23198c5e%22/%3E%3C/svg%3E") 0 0 / 11px no-repeat; // sass-lint:disable-line quotes
+  }
+
+  // saved
+  .saved {
+    position: relative;
+    color: $dark-secondary;
+    background-color: lighten($light2-secondary, 5%);
+  }
+
+  // Updated
+  &.updated {
+    input,
+    select,
+    textarea {
+      color: $dark-primary;
+      background-color: $bg-light-primary;
+    }
+
+    input[type=checkbox].completed:checked+label:after,
+    input[type=radio].completed:checked+label:after {
+      background: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%227.692%22%20height%3D%225.894%22%20viewBox%3D%220%200%207.692%205.894%22%3E%3Ctitle%3Eicons%3C/title%3E%3Cpath%20d%3D%22M7.552%201.488L3.96%205.08l-.675.674a.48.48%200%200%201-.676%200l-.675-.674-1.8-1.8a.48.48%200%200%201%200-.676L.81%201.93a.48.48%200%200%201%20.675%200l1.46%201.463L6.2.137a.484.484%200%200%201%20.676%200l.674.674a.476.476%200%200%201%200%20.677z%22%20fill%3D%22%230094de%22/%3E%3C/svg%3E") 0 0 / 11px no-repeat; // sass-lint:disable-line quotes
+    }
+
+    .form-request-status {
+      color: $primary;
+    }
+  }
+}
+
+
+div form:not(.worksheet) .form-group label {
+  color: $medium-gray;
+}
+
+//
+// flatpickr
+// --------------------------------------------------------------------------
+.form-flatpickr.form-control[readonly]:not(.saved) {
+  background-color: $white;
+}
+
+//
+// Form group mods
+// --------------------------------------------------------------------------
+.form-wrapper-search .form-group,
+.form-wrapper-file .form-group {
+  margin-bottom: 0;
+}
+
+//
+// Input checkbox switch style - https://codeburst.io/pure-css3-input-as-the-ios-checkbox-8b6347d5cefb
+// --------------------------------------------------------------------------
+
+.form-check-switch {
+  position: relative;
+  top: .1rem;
+  left: 0;
+  appearance: none;
+  outline: none;
+  width: 33px;
+  height: 18px;
+  background-color: $white;
+  border: 2px solid $gray;
+  border-radius: 50px;
+  box-shadow: inset -2px 0 0 0 $white;
+}
+
+.form-check-switch:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: $white;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  box-shadow: 2px 0 1px $gray;
+}
+
+.form-check-switch:checked {
+  box-shadow: inset 15px 0 0 0 $gray;
+  border-color: $gray;
+}
+
+.form-check-switch:checked:after {
+  left: 15px;
+  box-shadow: -2px 0 2px rgba(0, 0, 0, .05);
+}
+
+//
+// Form request status
+// --------------------------------------------------------------------------
+.form-request-status {
+  font-size: .7rem;
+  margin-left: .3rem;
+  color: $secondary;
+  z-index: 60;
+
+  &.no-label {
+    margin-left: 0;
+    position: absolute;
+    top: -1rem;
+    left: 0;
+
+    &.complete {
+      top: -1rem;
+    }
+  }
+
+  &.complete {
+    position: absolute;
+    top: .4rem;
+    left: auto;
+    right: .2rem;
+
+    &:after {
+      font-family: $font-icons-free;
+      font-weight: bold;
+      font-size: .7rem;
+      margin-left: .2rem;
+      content: '\f00c';
+    }
+  }
+
+  &.form-request-status-radio {
+    position: absolute;
+    top: .3rem;
+    left: -1.4rem;
+    margin-left: 0;
+  }
+
+  &.form-request-status-form {
+    margin-left: 0;
+    font-size: .9rem;
+    position: absolute;
+    bottom: -1.5rem;
+    left: 0;
+
+    &.complete {
+      top: auto;
+      bottom: -1.5rem;
+      left: 0;
+    }
+
+    &.complete.sent:after {
+      content: '\f064';
+    }
+
+    &:after {
+      font-size: .8rem;
+    }
+  }
+}
+
+
+//
+// File / Form wrapper
+// --------------------------------------------------------------------------
+.form-upload-display {
+  //overflow: auto;
+  .btn-file {
+    padding-left: .95rem;
+    padding-right: .95rem;
+  }
+}
+
+
+.form-wrapper-file,
+.form-wrapper {
+  position: relative;
+  border-radius: $global-radius;
+  background-color: $white;
+  border: 1px solid $light-gray;
+  //padding: .3rem;
+
+  &.form-wrapper-search {
+    background-color: $white-gray;
+  }
+
+
+  h5 {
+    color: $heading-text-color1;
+    font-size: 1rem;
+  }
+
+  h5 span {
+    color: $secondary;
+    font-weight: normal;
+
+    &:before {
+      font-size: .8rem;
+      margin-left: .5rem;
+      margin-right: .5rem;
+      font-family: $font-icons-free;
+      font-weight: bold;
+      content: '\f053';
+    }
+  }
+
+  .btn-sm {
+    font-size: .8rem;
+  }
+
+  img {
+    border-radius: $global-radius;
+    margin-top: 1rem;
+    max-width: 100%;
+  }
+}
+
+.file-drop-area {
+  padding: 15% 0;
+}
+
+.form-wrapper-file {
+  .form-check .small {
+    position: relative;
+    top: -.3rem;
+  }
+
+  .multiselect__input::placeholder {
+    color: $black;
+  }
+}
+
+.form-wrapper {
+  border-color: $light-gray;
+}
+
+.form-wrapper-file-dragging {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 98%;
+  height: 60vh;
+  overflow: auto;
+  z-index: 99999;
+  background-color: rgba(0, 115, 182, .55);
+
+  span {
+    color: $white;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+
+    &:after {
+      margin-top: .5rem;
+      display: block;
+      content: '\f0ab';
+      font-size: 3rem;
+      color: rgba(255, 255, 255, .5);
+      font-family: $font-icons-free;
+    }
+  }
+}
+
+//
+// Rows of files (Custom Assignments, etc)
+// --------------------------------------------------------------------------
+.row-file {
+  .form-request-status {
+    top: .1rem;
+    right: -1rem; //.2rem;
+
+    &:after {
+      content: '';
+    }
+
+    .fas {
+      font-size: .6rem;
+    }
+  }
+
+  .form-check .form-request-status {
+    top: 0;
+    right: -1.2rem;
+  }
+
+  .custom-checkbox .form-request-status {
+    top: -.1rem;
+  }
+
+  // .form-group-multiselect .form-request-status {
+  //   top: 0;
+  //   right: .3rem;
+  // }
+
+  @include media-breakpoint-down(md) {
+    border-bottom: solid $light-gray 1px;
+  }
+}
+
+//
+// File drag and drop
+// --------------------------------------------------------------------------
+// .form-file-drag {
+//   border: dashed $light-gray 2px;
+// }
+
+.form-file-dragging  {
+  border-style: solid;
+  background-color: $white-gray;
+}
+
+.form-dropped-files {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: inline-block;
+    margin-right: 1rem;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.form-filename {
+  position: relative;
+
+  label {
+    cursor: default;
+    position: absolute;
+    top: .4rem;
+    left: .5rem;
+    color: lighten($medium-gray, 10%);
+
+    i {
+      font-size: larger;
+    }
+  }
+
+  input {
+    font-weight: 600;
+    padding-left: 1.5rem;
+
+    &::placeholder {
+      font-weight: normal;
+    }
+  }
+}
+
+.form-filename .form-group label {
+  position: absolute;
+}
+
+.form-control-points::placeholder {
+  @include media-breakpoint-up(md) {
+    font-size: .65rem;
+  }
+}
+
+//
+// Copy Codes
+// --------------------------------------------------------------------------
+.form-input-copy {
+  color: $black;
+  border: 0;
+  max-width: 6rem;
+  display: inline-block;
+  font-family: $font-code;
+  background-color: transparent;
+
+  &.copy-link {
+    font-size: .6rem;
+    max-width: 95%;
+  }
+}
+
+.btn-copy {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 0;
+  height: 100%;
+  background-color: $light-gray;
+  color: $gray;
+  border-top-right-radius: $global-radius;
+  border-bottom-right-radius: $global-radius;
+}
+
+.icon-refresh {
+  color: $gray;
+  position: absolute;
+  top: .6rem;
+  right: 2rem;
+  cursor: pointer;
+
+  &:hover {
+    color: $medium-gray;
+  }
+}
+
+
+//
+// Form Notify
+// --------------------------------------------------------------------------
+.form-notify {
+  z-index: 10;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  max-width: 20rem;
+}
+
+
+
+//
+// Form login
+// --------------------------------------------------------------------------
+.form-login .alert {
+  font-size: .8rem;
+  text-align: left;
+  padding-right: 1.25rem !important;
+}
+
+.form-control-label {
+  position: relative;
+  display: block;
+}
+
+
+.form {
+  .form-heading {
+    color: $heading-text-color1;
+    padding-bottom: 1rem;
+    border-bottom: solid $light-gray 1px;
+  }
+
+  .form-heading:not(:first-of-type) {
+    margin-top: 2rem;
+  }
+}
+
+//
+// Placeholders in place of Labels
+// --------------------------------------------------------------------------
+.form-placeholder {
+  .form-group {
+    position: relative;
+  }
+
+  label {
+    display: block;
+    visibility: hidden;
+    position: absolute;
+    top: .2rem;
+    right: 5rem;
+    font-size: .7rem;
+    color: $input-placeholder-label-text-color;
+    transition: right .7s ease;
+  }
+
+  .form-group label { // sigh, temp fix
+    position: absolute;
+  }
+
+  select,
+  textarea,
+  input:not([type='submit']) {
+    &:focus {
+      +label {
+        visibility: visible;
+        right: .5rem;
+      }
+
+      &::placeholder {
+        color: transparent;
+        transition: color .3s ease;
+      }
+    }
+
+    &.completed {
+      color: $input-complete-text-color;
+      background: $input-complete-background-color;
+    }
+  }
+
+  select+label {
+    display: none;
+  }
+}
+
+//
+// Submit
+// --------------------------------------------------------------------------
+.form-submit-button {
+  position: relative;
+}
+
+
+.form-login {
+  h3 {
+    color: $primary;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+}
+
+
+
+//
+// Styled Checkboxes
+// --------------------------------------------------------------------------
+.form-group,
+.form-row {
+  position: relative;
+
+  label,
+  fieldset {
+    position: relative;
+  }
+
+  input[type='radio'],
+  input[type='checkbox'] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+
+    +label:after {
+      content: none;
+    }
+
+    &:checked+label:after {
+      content: '';
+    }
+
+    +label:before {
+      top: .1rem;
+      left: 0;
+      position: relative;
+      vertical-align: top;
+      margin-right: .5rem;
+      content: '';
+      display: block;
+      float: left;
+      //margin-bottom: 1rem;
+      width: 1rem;
+      height: 1rem;
+      background-color: $white;
+      border-radius: 2px;
+      border: solid 1px $input-border-color;
+    }
+
+    +label:after {
+      position: absolute;
+      top: .4rem;
+      left: .2rem;
+      display: block;
+      width: 1rem;
+      height: 1rem;
+      background: transparent get-icon(checkmark, $input-label-text-color) 0 0 / 60% no-repeat;
+    }
+  }
+
+  input[type='radio']+label:before {
+    border-radius: 50%;
+    width: 19px;
+    height: 19px;
+  }
+
+  input[type='radio']+label:after {
+    top: 7px;
+    left: 4px;
+  }
+
+  .error {
+    margin-right: 1rem;
+  }
+
+  .form-control-auto {
+    width: auto;
+  }
+}
+
+.form-check-danger {
+  input[type='radio'],
+  input[type='checkbox'] {
+    +label:after {
+      background: transparent get-icon(checkmark, $danger) 0 0 / 60% no-repeat;
+    }
+  }
+}
+
+.form-check-secondary {
+  input[type='radio'],
+  input[type='checkbox'] {
+    +label:after {
+      background: transparent get-icon(checkmark, $secondary) 0 0 / 60% no-repeat;
+    }
+  }
+}
+
+.form-group-secondary {
+  input:not([type=submit]),
+  textarea {
+    color: $secondary;
+  }
+}
+
+//
+// Hide Labels
+// --------------------------------------------------------------------------
+.hide-checkbox-labels {
+  input[type='checkbox']+label,
+  input[type='radio']+label {
+    text-indent: -9999px;
+  }
+}
+
+//
+// Form Errors
+// --------------------------------------------------------------------------
+
+input.error,
+select.error,
+textarea.error {
+  background-color: $input-error-background-color !important;
+  color: $input-error-text-color !important;
+
+  &::placeholder {
+    color: $input-error-text-color !important;
+  }
+}
+
+
+em.error,
+label.error {
+  margin-top: .5rem;
+  display: inline-block;
+  //background: transparent get-icon(close, $input-error-text-color) 0 45% no-repeat;
+  //padding-left: .7rem;
+  font-style: normal;
+  font-size: .8rem;
+  color: $input-error-text-color;
+}

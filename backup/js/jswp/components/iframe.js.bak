@@ -1,0 +1,220 @@
+//
+// iframe Triggers
+// --------------------------------------------------------------------------
+EDIL.iFrameTriggers = function() {
+    if (this.isMobile()) {
+        $('.loadbox').colorbox({
+            iframe: true,
+            width: '100%',
+            height: '100%',
+            onOpen: EDIL.hideContent,
+            onClosed: function() {
+                location.reload(true);
+                EDIL.showContent();
+            }
+        });
+        $('.loadbox-norefresh').colorbox({
+            iframe: true,
+            width: '100%',
+            height: '100%',
+            onOpen: EDIL.hideContent,
+            onClosed: EDIL.showContent
+        });
+        $('.example-file').colorbox({ maxWidth: '95%' });
+        $('.loadbox-sm').colorbox({
+            iframe: true,
+            width: '100%',
+            height: '100%',
+            onOpen: EDIL.hideContent,
+            onClosed: function() {
+                location.reload(true);
+                EDIL.showContent();
+            }
+        });
+        $('.loadbox-sm-norefresh').colorbox({
+            iframe: true,
+            width: '100%',
+            height: '100%',
+            onOpen: EDIL.hideContent,
+            onClosed: EDIL.showContent
+        });
+        $('.loadbox-smlong').colorbox({
+            iframe: true,
+            width: '100%',
+            height: '100%',
+            onOpen: EDIL.hideContent,
+            onClosed: function() {
+                location.reload(true);
+                EDIL.showContent();
+            }
+        });
+        $('.loadbox-smlong-norefresh').colorbox({
+            iframe: true,
+            width: '100%',
+            height: '100%',
+            onOpen: EDIL.hideContent,
+            onClosed: EDIL.showContent
+        });
+    } else {
+        $('.loadbox').colorbox({
+            iframe: true,
+            width: '95%',
+            height: '95%',
+            onOpen: EDIL.hideContent,
+            onClosed: function() {
+                location.reload(true);
+                EDIL.showContent();
+            }
+        });
+        $('.loadbox-norefresh').colorbox({
+            iframe: true,
+            width: '95%',
+            height: '95%',
+            onOpen: EDIL.hideContent,
+            onClosed: EDIL.showContent
+        });
+        $('.example-file').colorbox({ maxWidth: '90%' });
+        $('.loadbox-sm').colorbox({
+            iframe: true,
+            width: '50%',
+            height: '40%',
+            onClosed: function() {
+                location.reload(true);
+            }
+        });
+        $('.loadbox-sm-norefresh').colorbox({
+            iframe: true,
+            width: '50%',
+            height: '40%'
+        });
+        $('.loadbox-smlong').colorbox({
+            iframe: true,
+            width: '50%',
+            height: '70%',
+            onClosed: function() {
+                location.reload(true);
+            }
+        });
+        $('.loadbox-smlong-norefresh').colorbox({
+            iframe: true,
+            width: '50%',
+            height: '70%'
+        });
+    }
+};
+
+//
+// iframe Triggers
+// --------------------------------------------------------------------------
+EDIL.iFrameTriggers = function() {
+    if (this.isMobile()) {
+        $('.loadbox').colorbox({
+            iframe: true,
+            width: '100%',
+            height: '100%',
+            onOpen: EDIL.hideContent,
+            onClosed: function() {
+                location.reload(true);
+                EDIL.showContent();
+            }
+        });
+        $('.loadbox-norefresh').colorbox({
+            iframe: true,
+            width: '100%',
+            height: '100%',
+            onOpen: EDIL.hideContent,
+            onClosed: EDIL.showContent
+        });
+        $('.example-file').colorbox({ maxWidth: '95%' });
+        $('.loadbox-sm').colorbox({
+            iframe: true,
+            width: '100%',
+            height: '100%',
+            onOpen: EDIL.hideContent,
+            onClosed: function() {
+                location.reload(true);
+                EDIL.showContent();
+            }
+        });
+        $('.loadbox-sm-norefresh').colorbox({
+            iframe: true,
+            width: '100%',
+            height: '100%',
+            onOpen: EDIL.hideContent,
+            onClosed: EDIL.showContent
+        });
+        $('.loadbox-smlong').colorbox({
+            iframe: true,
+            width: '100%',
+            height: '100%',
+            onOpen: EDIL.hideContent,
+            onClosed: function() {
+                location.reload(true);
+                EDIL.showContent();
+            }
+        });
+        $('.loadbox-smlong-norefresh').colorbox({
+            iframe: true,
+            width: '100%',
+            height: '100%',
+            onOpen: EDIL.hideContent,
+            onClosed: EDIL.showContent
+        });
+    } else {
+        $('.loadbox').colorbox({
+            iframe: true,
+            width: '95%',
+            height: '95%',
+            onOpen: EDIL.hideContent,
+            onClosed: function() {
+                location.reload(true);
+                EDIL.showContent();
+            }
+        });
+        $('.loadbox-norefresh').colorbox({
+            iframe: true,
+            width: '95%',
+            height: '95%',
+            onOpen: EDIL.hideContent,
+            onClosed: EDIL.showContent
+        });
+        $('.example-file').colorbox({ maxWidth: '90%' });
+        $('.loadbox-sm').colorbox({
+            iframe: true,
+            width: '50%',
+            height: '40%',
+            onClosed: function() {
+                location.reload(true);
+            }
+        });
+        $('.loadbox-sm-norefresh').colorbox({
+            iframe: true,
+            width: '50%',
+            height: '40%'
+        });
+        $('.loadbox-smlong').colorbox({
+            iframe: true,
+            width: '50%',
+            height: '70%',
+            onClosed: function() {
+                location.reload(true);
+            }
+        });
+        $('.loadbox-smlong-norefresh').colorbox({
+            iframe: true,
+            width: '50%',
+            height: '70%'
+        });
+    }
+};
+
+//
+//  Show / Hide Content (for Colorbox)
+// --------------------------------------------------------------------------
+// EDIL.hideContent = function() {
+//     EDIL.$contentAndFooter.hide();
+// };
+
+// EDIL.showContent = function() {
+//     EDIL.$contentAndFooter.show();
+// };

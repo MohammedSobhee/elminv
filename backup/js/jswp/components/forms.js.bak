@@ -1,0 +1,199 @@
+//
+// close colorbox and confirm submission
+// --------------------------------------------------------------------------
+EDIL.confirmSubmit = function() {
+    this.$confirmSubmit.on('click', function(e) {
+        var element = $(this),
+            notice = 'Are you sure you want to perform this action?';
+        if (element.hasClass('confirm-delete-project')) {
+            notice = 'Are you sure you want to delete this project?';
+        } else if (element.hasClass('confirm-delete')) {
+            notice = 'Are you sure you want to delete this item?';
+        }
+        !confirm(notice) ? e.preventDefault() : parent.$.fn.colorbox.close();
+    });
+};
+
+//
+// Use Select field values as input field values
+// --------------------------------------------------------------------------
+EDIL.formSelectToInput = function(select, input) {
+    var inputName = input + '_';
+    select.on('change', function() {
+        if ($(this) !== '') {
+            var selectName = $(this).attr('class');
+            selectName =
+                selectName.substr(0, selectName.indexOf(' ')) || selectName;
+            $(inputName + selectName).val($('.' + selectName).val());
+        } else {
+            !$(input).val() && $(input).val($('select').val());
+        }
+    });
+    $(input).on('click', function() {
+        $(this).select();
+    });
+};
+
+//
+// add project form trigger
+// --------------------------------------------------------------------------
+EDIL.addFormTrigger = function(trigger, form) {
+    trigger.on('click', function() {
+        form.toggleDisplay();
+    });
+};
+
+//
+// Clear Form
+// --------------------------------------------------------------------------
+EDIL.clearForm = function(trigger, form, label) {
+    label = label || 'Edit';
+    trigger.on('click', function() {
+        $(':input')
+            .not(':button, :submit, :reset, :hidden, :checkbox, :radio')
+            .val('');
+        $(':checkbox, :radio').prop('checked', false);
+        form.find('input[type=submit]').val(label);
+    });
+};
+
+//
+// Register Form Register Button to Edit
+// --------------------------------------------------------------------------
+EDIL.formButtonSwitch = function(form, field, label) {
+    label = label || 'Edit';
+    if (form.length && form.find(field).val().length) {
+        form.find('input[type=submit]').val(label);
+    }
+};
+
+//
+// Select auto submit
+// --------------------------------------------------------------------------
+// EDIL.onChangeSubmit = function(field) {
+//     field.change(function() {
+//         $(this)
+//             .parent('form')
+//             .submit();
+//     });
+// };
+
+//
+// Teacher Grade Select Form
+// --------------------------------------------------------------------------
+EDIL.teacherGradeSelect = function(select) {
+    select.change(function() {
+        $(this)
+            .closest('form')
+            .submit();
+        parent.$('.loadbox').colorbox.close();
+    });
+};
+
+//
+// Disable worksheets when grading
+// --------------------------------------------------------------------------
+EDIL.disableWorkSheets = function(form) {
+    form += ' ';
+    $(
+        form +
+            ':input:not([type=submit]),' +
+            form +
+            'select,' +
+            form +
+            'textarea'
+    ).attr('disabled', 'disabled');
+};
+
+// Style completed worksheet fields
+EDIL.completedFields = function() {
+    this.$worksheetForm
+        .not('.worksheet-form-grade, .general-form')
+        .find(':input')
+        .not(
+            $(
+                'input[type="submit"], input[type="hidden"], select[class^="select_"]'
+            )
+        )
+        .each(function() {
+            $(this).val().length && $(this).addClass('has-value');
+        });
+
+    this.$worksheetForm
+        .not('.worksheet-form-grade')
+        .find('.grade_img')
+        .prevAll('input[type="file"]')
+        .addClass('has-value');
+    this.$worksheetForm.find('.select_input').each(function() {
+        $(this).val().length &&
+            $(this)
+                .prev('select')
+                .addClass('has-value');
+    });
+};
+
+//
+// Teacher's send back button  - Currently not used
+// --------------------------------------------------------------------------
+EDIL.teacherSendBack = function() {
+    $('.send-back').on('click', function() {
+        $(this)
+            .closest('form')
+            .submit();
+        parent.$('.loadbox').colorbox.close();
+    });
+};
+
+//
+// Upload Progress Bar
+// --------------------------------------------------------------------------
+EDIL.uploadProgress = function() {
+    var wrapper = '.worksheet-progress',
+        $bar = $('.worksheet-progress-bar'),
+        $percent = $('.worksheet-progress-percent'),
+        $form = $('.form-fileupload'),
+        $submitBtn = $('.submit-grade');
+    //$capture = $('.worksheet-progress-capture');
+
+    $form.ajaxForm({
+        target: wrapper,
+        iframe: false,
+        //iframeTarget: '.worksheet-progress-capture',
+        forceSync: true,
+        dataType: 'json',
+        resetForm: true,
+
+        beforeSubmit: function(arr, $form) {
+            $form.find('input[type="file"]').each(function() {
+                $(this).val() &&
+                    $(this)
+                        .siblings(wrapper)
+                        .slideDown();
+                $('#worksheet-progress-top').slideDown();
+            });
+        },
+
+        beforeSend: function() {
+            var percentVal = '0%';
+            $bar.width(percentVal);
+            $percent.html(percentVal);
+        },
+
+        uploadProgress: function(event, position, total, percentComplete) {
+            var percentVal = percentComplete + '%';
+            $bar.width(percentVal);
+            $percent.html(percentVal);
+            if (percentComplete == 100) {
+                $percent.css('color', '#fff');
+                $(wrapper)
+                    .delay(1000)
+                    .slideUp();
+                $('input[type=file]').clearFields();
+                if ($submitBtn.length == 0 || $submitBtn.is(':hidden'))
+                    setTimeout(function() {
+                        location.reload();
+                    }, 2500);
+            }
+        }
+    });
+};

@@ -1,0 +1,4 @@
+
+<?php
+
+(new EduAssignments())->init();

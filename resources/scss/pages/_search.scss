@@ -1,0 +1,25 @@
+.content-search {
+  padding-top: 2rem;
+
+  h3 a {
+    color: $heading-text-color1;
+    font-size: 1.3rem;
+  }
+
+  .excerpt a:hover {
+    text-decoration: none;
+  }
+
+  .search-results {
+    display: block;
+    margin-bottom: 2rem;
+  }
+
+  .excerpt {
+    margin-bottom: 2rem;
+
+    a {
+      color: $black;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+//
+// Activity Log paginate
+// --------------------------------------------------------------------------
+.dataTables_paginate {
+  margin-left: 2rem !important;
+}
+
+.dataTables_filter {
+  margin-left: 2rem !important;
+}
+
+.dataTables_length .form-control {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.paginate_button {
+  @extend .page-item;
+}
+
+.paginate_button a {
+  @extend .page-link;
+}

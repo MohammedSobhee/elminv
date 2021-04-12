@@ -1,0 +1,97 @@
+.manage-assignments {
+  .sort-menu .wrapper {
+    padding: .5rem 1rem .45rem 0;
+  }
+
+  .insert-dropdown {
+    width: 95.5%;
+    position: absolute;
+    top: -.5rem;
+    background-color: $white;
+  }
+
+  .insert-manage {
+    position: relative;
+    top: .1rem;
+    left: .1rem;
+  }
+
+  .highlight-file {
+    position: relative;
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+    margin: 1rem 0 2rem;
+
+    &:after,
+    &:before {
+      content: '';
+      width: 100%;
+      height: 10px;
+      position: absolute;
+      left: 0;
+    }
+
+    &:before {
+      top: -10px;
+      box-shadow: 0 -4px 6px -1px rgba(217, 223, 233, .5);
+    }
+
+    &:after {
+      bottom: -10px;
+      box-shadow: 0 4px 6px -1px rgba(217, 223, 233, .5);
+    }
+  }
+
+  .points {
+    color: $secondary;
+  }
+
+  .multiselect__option--highlight span {
+    color: $white !important;
+  }
+
+  .form-request-status {
+    top: .3rem;
+  }
+
+  //
+  // Active / Delete checkboxes
+  // --------------------------------------------------------------------------
+
+  .custom-control {
+    padding-left: 1.2rem;
+    min-height: 1rem;
+  }
+
+  .custom-control .custom-control-label {
+    top: .05rem;
+
+    &::before,
+    &::after {
+      top: .05rem;
+      left: -1rem;
+      border-radius: .2rem;
+      width: .75rem;
+      height: .75rem;
+      background-size: 55%;
+    }
+  }
+
+  .custom-control .custom-control-label-team {
+    top: 0;
+
+    &::before,
+    &::after {
+      top: .1rem;
+    }
+  }
+}
+
+
+//
+// Insert
+// --------------------------------------------------------------------------
+.custom-checkbox-insert.custom-control .custom-control-label::after {
+  top: .07rem;
+  left: -.95rem;
+}

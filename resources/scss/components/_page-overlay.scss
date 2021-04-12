@@ -1,0 +1,58 @@
+//
+// Page Overlay
+// --------------------------------------------------------------------------
+.page-overlay {
+  // overscroll-behavior: contain;
+  // overflow-y: scroll;
+  background-color: rgba(255, 255, 255, .9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+.page-overlay-wrapper {
+  position: relative;
+  padding: 2rem 1rem 3rem;
+  width: 100%;
+  height: 100%;
+  z-index: 11;
+  overflow: auto;
+}
+
+.page-overlay-content {
+  max-width: $site-max-width;
+  margin: 0 auto;
+}
+
+.page-overlay-close {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  top: 2rem;
+  right: 2rem;
+  z-index: 11;
+
+  svg {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
+.page-overlay-header {
+  color: $primary;
+  display: inline-block;
+  background-color: $white;
+  line-height: 1;
+  padding: .45rem .75rem;
+  border-radius: $global-radius;
+}
+
+.page-overlay-btns {
+  text-align: right;
+  padding-bottom: 1rem;
+  z-index: 9999;
+}

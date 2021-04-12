@@ -1,0 +1,53 @@
+//
+// File enter / leave Animation
+// --------------------------------------------------------------------------
+.row-transition {
+  display: block;
+  position: relative;
+}
+
+.row-animate {
+  transition: all 500ms;
+}
+
+.row-enter,
+.row-leave-to {
+  //transform: translateX(100%);
+  opacity: 0;
+  transform: translateY(10%);
+  transition: all 500ms;
+}
+
+.row-leave-active {
+  width: 100% !important;
+  position: absolute !important;
+}
+
+//
+// Page enter / leave
+// --------------------------------------------------------------------------
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+}
+
+.page-leave-active {
+  display: none;
+  // width: 100%;
+  // position: absolute;
+  // transform: translateX(-30%);
+}
+
+//
+// Collapse (Accordion) Animation
+// --------------------------------------------------------------------------
+.collapse-enter,
+.collapse-leave-to {
+  height: 0;
+}
+
+.collapse-enter-active,
+.collapse-leave-active {
+  overflow: hidden;
+  transition: height .3s;
+}

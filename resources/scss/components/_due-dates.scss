@@ -1,0 +1,47 @@
+//
+// Due Date Wrapper
+// --------------------------------------------------------------------------
+.btn-duedate {
+  font-weight: normal;
+  color: $medium-gray;
+
+  &:focus {
+    color: $black;
+  }
+}
+
+.duedate-wrapper {
+  overflow: auto;
+  width: 20rem;
+  max-height: 17rem;
+  border-radius: $global-radius;
+  border-top-left-radius: 0;
+  position: absolute;
+  top: 1.33rem;
+  right: 0;
+  z-index: 999;
+
+  .list-group-item {
+    padding-left: .75rem;
+    padding-right: .75rem;
+    background-color: $white-gray;
+  }
+
+  .list-group-flush {
+
+    &:first-of-type {
+      border-top-left-radius: 0;
+      border-top-right-radius: $global-radius;
+    }
+
+    &:last-of-type {
+      border-bottom-right-radius: $global-radius;
+      border-bottom-left-radius: $global-radius;
+    }
+  }
+}
+
+.row-transition .row-file:nth-last-child(-n+3) .duedate-wrapper {
+  top: auto;
+  bottom: 1.33rem;
+}

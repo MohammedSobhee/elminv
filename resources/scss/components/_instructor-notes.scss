@@ -1,0 +1,134 @@
+//
+// Instructor Note
+// --------------------------------------------------------------------------
+.acst {
+  display: none;
+}
+
+.acs,
+.acs-inline.elementor-widget-text-editor,
+.acs-inline.elementor-widget-video {
+  color: $teacher-text-color;
+  background: $teacher-bg-color;
+  border: solid $light-secondary 1px;
+  border-radius: $global-radius;
+}
+
+.acs,
+.acs-inline {
+  .label {
+    cursor: pointer;
+    font-size: .8rem;
+    margin-bottom: 0;
+  }
+}
+
+
+.acs-inline:not(.acs-button) {
+  padding: 1rem;
+
+  p:last-of-type {
+    margin-bottom: 0;
+  }
+
+  &.elementor-widget-text-editor,
+  &.elementor-widget-video,
+  &.el {
+    margin-bottom: 0 !important;
+
+    .label {
+      color: $secondary;
+      margin-top: -.2rem;
+      font-weight: normal;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+
+.acs-inline {
+  display: none;
+}
+
+.acs-inline-toggle .elementor-widget-container {
+  display: none;
+}
+
+.acs {
+  display: none;
+  position: relative;
+  padding: .3rem 1rem .6rem;
+  border-radius: $global-radius;
+  background: lighten($light-secondary, 10%);
+  border: solid $light-secondary 1px;
+
+  .label {
+    font-weight: bold;
+    margin-top: .2rem;
+    //margin-left: 1rem;
+  }
+
+  .elementor-column-gap-default>.elementor-row>.elementor-column>.elementor-element-populated {
+    padding: 0;
+  }
+
+  .elementor-text-editor p:first-of-type {
+    padding-top: 1rem;
+  }
+
+  .elementor-text-editor p:last-of-type {
+    margin-bottom: 0;
+  }
+
+  ul,
+  ol {
+    //padding-bottom: 1rem;
+    margin-bottom: 0;
+  }
+
+  .section-content-wrapper {
+    display: none;
+    padding-bottom: 1.5rem;
+  }
+
+  &:before {
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    content: '';
+    width: 13px;
+    height: 13px;
+    background: get-icon(chevron-down, $secondary) 0 0 / contain no-repeat;
+  }
+
+  &.open {
+    .label {
+      color: $secondary;
+      font-weight: normal;
+    }
+
+    &:before {
+      background-image: get-icon(chevron-up, $secondary);
+    }
+  }
+}
+
+
+//
+// Elementor fixes
+// --------------------------------------------------------------------------
+.elementor-top-section.acs {
+  // margin-left: 5%;
+  margin-right: 5%;
+
+  @include media-breakpoint-up(md) {
+    // margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+.section-toggle .elementor-top-section.acs {
+  // margin-left: 0 !important;
+  margin-right: 0 !important;
+}

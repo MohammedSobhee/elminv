@@ -1,0 +1,325 @@
+//
+// Textbox Style
+// --------------------------------------------------------------------------
+%textbox {
+  @include clearfix;
+  padding-bottom: 1rem;
+  margin-top: 1rem;
+  border-radius: 0;
+  //border-top: solid $textbox-h2-border-color 5px; //border-bottom: solid #eee 5px;
+
+  h2 {
+    position: relative;
+    font-size: 1.1rem;
+    margin-top: 5px;
+    margin-bottom: 0;
+    line-height: 1;
+    padding: .7rem .5rem .7rem 2.5rem;
+    border-radius: $global-radius;
+    background: $textbox-h2-bg-color;
+    color: $heading-text-color1;
+    @include media-breakpoint-up(lg) {
+      font-size: 1.4rem;
+      padding: .7rem 0 .7rem 4rem;
+    }
+
+    strong {
+      color: $heading-text-color1;
+      font-weight: inherit;
+    }
+
+    &:before,
+    &:after {
+      color: $medium-gray;
+      position: absolute;
+      top: 25%;
+      line-height: 1;
+      font-family: $font-icons-free;
+    }
+
+    &:before {
+      left: 1rem;
+      font-size: 1.6rem;
+      content: '\f15c';
+    }
+
+    &:after {
+      top: 33%;
+      right: 1rem;
+      font-size: 1rem;
+      margin-left: 1rem;
+      content: '\f078';
+    }
+
+  }
+}
+
+
+//
+// Objectives / Actions / Warnings
+// --------------------------------------------------------------------------
+.section-objectives {
+  @extend %textbox;
+  clear: both;
+  margin: 1rem 0 0;
+  padding-bottom: 0;
+
+  b,
+  strong {
+    color: $black;
+  }
+
+
+
+  p {
+    margin: 1rem 1rem 0;
+  }
+
+  ul {
+    list-style: none;
+    margin: .5rem 0 0;
+    padding-left: 3rem;
+    text-indent: -2rem;
+  }
+
+  li {
+
+    &:before {
+      font-family: $font-icons-free;
+      content:  '\f058';
+      font-weight: bold;
+      color: $primary;
+      margin-right: .75rem;
+    }
+
+  }
+
+  li:not(:last-child) {
+    margin-bottom: .5rem;
+  }
+
+  h2 {
+    background-image: get-icon(checkmark-box, $gray, $black);
+    background-position: 2% 50%;
+    background-repeat: no-repeat;
+    background-size: 40px;
+    margin-bottom: 1rem;
+    @include media-breakpoint-up(lg) {
+      font-size: 1.5rem; //background-size: 5%;
+    }
+
+    &:before,
+    &:after {
+      content: '';
+    }
+
+  }
+
+  &.action {
+    h2,
+    h3 {
+      font-size: 1.4rem;
+      margin-top: 5px;
+      line-height: 1;
+      padding: .5rem 0 .5rem 3rem;
+      background: $textbox-h2-bg-color;
+      border-radius: $global-radius;
+      background-image: get-icon(checkmark-box, $gray, #000);
+      background-position: 1% 50%;
+      background-size: 30px;
+      background-repeat: no-repeat;
+      @include media-breakpoint-up(lg) {
+        background-size: 4.5%;
+      }
+    }
+
+    &.warning {
+      h2,
+      h3 {
+        background-image: get-icon(exclamation-triangle, $orange);
+        background-size: 26px;
+      }
+    }
+
+
+    h3,
+    h3 strong,
+    h2,
+    h2 strong {
+      color: $heading-text-color1;
+    }
+  }
+}
+
+
+//
+// Section - Toggle
+// --------------------------------------------------------------------------
+.section-toggle {
+  @extend %textbox;
+  padding-bottom: 0;
+  position: relative;
+
+  .section-toggle-header {
+    margin-bottom: 0 !important;
+
+    h2 {
+      border-radius: $global-radius;
+      background-image: none;
+      background-color: $textbox-h2-bg-color;
+      color: $heading-text-color1;
+      cursor: pointer;
+      margin-bottom: 0;
+
+      strong {
+        font-weight: inherit;
+      }
+    }
+
+    &.highlight h2 {
+      color: $black;
+      background: get-icon(file-text, $black) 2% 50% / 25px no-repeat,
+      get-icon(chevron-up, $black) 98% 50% / 15px no-repeat;
+      background-color: $textbox-h2-bg-color;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  .section-toggle-content {
+    padding-top: 1rem;
+    display: none;
+    border: solid $white-gray 2px;
+    border-radius: $global-radius;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top: 0;
+    padding: 15px;
+
+    h3 {
+      border-bottom: solid $textbox-h2-border-color 1px;
+      padding-bottom: .5rem;
+      //margin-top: 2rem;
+      font-size: 1.2rem;
+    }
+
+    li:last-child,
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+  }
+}
+
+//
+// Section - Toggle - Standards
+// --------------------------------------------------------------------------
+.section-toggle-standards {
+  margin: 0;
+  @include media-breakpoint-up(lg) {
+    margin: 0 0 1rem;
+  }
+}
+
+
+//
+// Section Inventionland
+// --------------------------------------------------------------------------
+.section-toggle-inventionland .section-toggle-header {
+  h2 {
+    background: get-icon(iland, $medium-gray) 2% 50% / 25px no-repeat;
+
+    &:before,
+    &:after {
+      content: '';
+    }
+  }
+
+  &.highlight h2 {
+    background: get-icon(iland, $black), get-icon(chevron-up, $black) 2% 50% / 25px no-repeat;
+  }
+}
+
+
+//
+// Section Action
+// --------------------------------------------------------------------------
+.section-toggle-action  .section-toggle-header {
+  h2 {
+    background-image: get-icon(pencil-ruler3, $medium-gray, $medium-gray), get-icon(chevron-down, $toggle-chevron-color);
+  }
+
+  &.highlight h2 {
+    background-image: get-icon(pencil-ruler3, $black, $black), get-icon(chevron-up, $black);
+  }
+}
+
+//
+// Section Note
+// --------------------------------------------------------------------------
+// .section-toggle-note .section-toggle-header {
+//   h2 {
+//     background-image: get-icon(file-text, $medium-gray), get-icon(chevron-down, $toggle-chevron-color);
+//   }
+
+//   &.highlight h2 {
+//     background-image: get-icon(file-text, $black), get-icon(chevron-down, $black);
+//   }
+// }
+
+
+
+//
+// Section Standards
+// --------------------------------------------------------------------------
+.section-toggle-standards {
+  color: $dark-gray;
+
+  .section-toggle-header {
+    h2 {
+      //background-image: get-icon(file-text, $medium-gray), get-icon(chevron-down, $toggle-chevron-color);
+      color: $medium-gray;
+      @include media-breakpoint-up(lg) {
+        background-position: 2% 50%, 98% 50%;
+      }
+    }
+
+    &.highlight h2 {
+      color: $black;
+      //background-image: get-icon(file-text, $black), get-icon(chevron-up, $black);
+      @include media-breakpoint-up(lg) {
+        background-position: 2% 50%, 98% 50%;
+      }
+    }
+  }
+
+
+  h3 {
+    border-bottom: solid $textbox-h2-border-color 1px;
+    padding-bottom: .5rem;
+    margin-top: 2.5rem;
+    font-size: 1.2rem;
+  }
+
+  ul:not(.elementor-editor-element-settings) {
+    display: none;
+  }
+
+  p:first-of-type {
+    padding-top: 1rem;
+  }
+
+  strong {
+    cursor: pointer;
+    display: block;
+    padding: .5rem;
+    color: $dark-gray;
+    border-radius: $global-radius;
+    background: $textbox-h2-bg-color get-icon(chevron-down, $toggle-chevron-color) 98% 50% / 15px no-repeat;
+
+    &.highlight {
+      color: $black;
+      background: $textbox-h2-bg-color get-icon(chevron-up, $black) 98% 50% / 15px no-repeat;
+    }
+  }
+}

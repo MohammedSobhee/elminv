@@ -1,0 +1,18 @@
+.section-standards .elementor-image,
+.section-standards ul:not(.elementor-editor-element-settings),
+.section-standards p,
+.section-standards h3 {
+    display: block !important;
+}
+
+.acs .section-content-wrapper {
+    display: block !important;
+}
+
+.acs-inline-toggle .elementor-widget-container {
+    display: block !important;
+}
+
+.section-toggle .section-toggle-content {
+    display: block !important;
+}

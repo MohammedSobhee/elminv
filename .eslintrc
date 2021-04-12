@@ -1,0 +1,119 @@
+{
+    "extends": ["eslint:recommended", "plugin:vue/recommended"],
+    // "airbnb-base",
+    "globals": {
+        "Cookies": true,
+        "Echo": true,
+        "EDIL": true,
+        "EDILJQ": true,
+        "eduData": true,
+        "eduUser": true,
+        "elementorFrontend": true,
+        "require": true,
+        "Vue": true,
+        "_": true,
+        "axios": true,
+        "utils": true
+    },
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [".js", ".vue", ".json"]
+            }
+        // npm install --save-dev eslint-import-resolver-webpack
+        //     "webpack": {
+        //         "config": {
+        //             "alias": {
+        //                 "map": [
+        //                     ["@", "./resources/js/"]
+        //                 ]
+        //             }
+        //         }
+        //     }
+        }
+    },
+    "parserOptions": {
+        "parser": "babel-eslint"
+    },
+    "env": {
+        "browser": true,
+        "jquery": true,
+        "node": true
+    },
+    "rules": {
+        "no-control-regex": 0,
+        "no-unused-vars": ["error", { "ignoreRestSiblings": true }],
+        "no-unused-expressions": ["error", {
+                "allowShortCircuit": true,
+                "allowTernary": true
+            }
+        ],
+        "max-len": 0,
+        "semi": 0,
+        "no-underscore-dangle": 0,
+        "one-var": 0,
+        "arrow-parens": ["error", "as-needed"],
+        "no-param-reassign": ["error", { "props": false }],
+        "vue/prop-name-casing": 0,
+        "comma-dangle": ["error", "never"],
+        "no-console": "warn",
+        "no-debugger": "warn",
+        // "import/no-extraneous-dependencies": [
+        //     "error",
+        //     { "devDependencies": true }
+        // ],
+        "vue/html-closing-bracket-newline": [
+            "error",
+            {
+                "singleline": "never",
+                "multiline": "never"
+            }
+        ],
+        "vue/max-attributes-per-line": [
+            "error",
+            {
+                "singleline": 4,
+                "multiline.max": 1
+            }
+        ],
+        "vue/singleline-html-element-content-newline": [
+            "error",
+            {
+                "ignoreWhenNoAttributes": true,
+                "ignoreWhenEmpty": true,
+                "ignores": [
+                    "pre",
+                    "textarea",
+                    "i",
+                    "em",
+                    "strong",
+                    "span",
+                    "option",
+                    "label",
+                    "a",
+                    "u",
+                    "th",
+                    "td",
+                    "button",
+                    "p",
+                    "small",
+                    "h4",
+                    "input",
+                    "img",
+                    "info-alert"
+                ]
+            }
+        ],
+        "vue/no-v-html": "off",
+        "vue/html-self-closing": "off",
+        "vue/html-indent": "off",
+        "indent": [
+            "warn",
+            4,
+            {
+                "VariableDeclarator": 1,
+                "SwitchCase": 1
+            }
+        ]
+    }
+}

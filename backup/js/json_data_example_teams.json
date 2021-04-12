@@ -1,0 +1,40 @@
+[
+  {
+    "id": 332,
+    "class_name": "Poots Class",
+    "teams": [
+      {
+        "id": 3,
+        "name": "Poots Team",
+        "students": [
+          {
+            "id": 34,
+            "first_name": "Donky",
+            "last_name": "King"
+          },
+          {
+            "id": 34,
+            "first_name": "Donky",
+            "last_name": "King"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Poots Team",
+        "students": [
+          {
+            "id": 34,
+            "first_name": "Donky",
+            "last_name": "King"
+          },
+          {
+            "id": 34,
+            "first_name": "Donky",
+            "last_name": "King"
+          }
+        ]
+      }
+    ]
+  }
+]

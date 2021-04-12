@@ -1,0 +1,21 @@
+.acst {
+    display: block !important;
+}
+
+.acs {
+    display: block !important;
+}
+
+.acs-inline {
+    display: block !important;
+}
+
+.acs-inline:not(.acs-button).elementor-widget-text-editor,
+.acs-inline:not(.acs-button).elementor-widget-video {
+    display: block;
+    margin-bottom: 20px !important;
+}
+
+.acs-inline:not(.acs-button).elementor-widget-text-editor:last-of-type {
+    margin-bottom: 0 !important;
+}

@@ -1,0 +1,54 @@
+/node_modules
+/Library
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+.env
+/storage/app/shopify.json
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+/.vscode
+wordpress-stubs.php
+acf-stubs.php
+.bic_cache
+
+
+public/course/.htaccess
+public/**/*.map
+backup/sql
+backup/db
+
+# Ignore all but assignments default
+!/public/uploads
+/public/uploads/*
+!/public/uploads/assignments
+/public/uploads/assignments/*
+!/public/uploads/assignments/default
+
+# Ignore all of js dist except for jquery files
+/public/mix-manifest.json
+!/public/assets/js
+/public/assets/js/*
+!/public/assets/js/validation.js
+!/public/assets/js/jquery.validate.min.js
+
+# Ignore all of wp folder
+!public/course
+public/course/*
+!public/course/wp-content
+public/course/wp-content/*
+!public/course/wp-content/plugins
+public/course/wp-content/plugins/*
+!public/course/wp-content/mu-plugins
+public/course/wp-content/mu-plugins/*
+!public/course/wp-content/themes
+public/course/wp-content/themes/*
+
+# But these
+!public/course/wp-content/themes/eduiland
+!public/course/wp-content/plugins/eduiland
+!public/course/wp-content/mu-plugins/eduiland_mu_plugin.php

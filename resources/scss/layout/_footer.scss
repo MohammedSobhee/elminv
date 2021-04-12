@@ -1,0 +1,98 @@
+//
+// Footer
+// --------------------------------------------------------------------------
+// IE 11
+_:-ms-fullscreen, //sass-lint:disable-line no-vendor-prefixes
+:root .footer {
+  display: none;
+}
+
+.footer {
+  @include clearfix;
+  background-color: darken($black, 8%);
+  color: $dark-gray;
+
+  a {
+    color: $white;
+  }
+
+  .copyright {
+    display: inline-block;
+    padding-top: .5rem;
+    text-align: center;
+    @include media-breakpoint-up(lg) {
+      padding-top: inherit;
+      text-align: left;
+    }
+
+  }
+
+  .footer-user {
+    display: none;
+    @include media-breakpoint-up(xl) {
+      display: inline;
+    }
+  }
+}
+
+//
+// Footer Social Buttons
+// --------------------------------------------------------------------------
+.footer-social {
+  padding: .6rem;
+}
+
+.footer-social-buttons {
+  clear: both;
+  margin: 0;
+  padding: 0;
+  @include media-breakpoint-up(md) {
+    clear: none;
+    display: block;
+    float: right;
+    border-radius: 0;
+    background-color: transparent;
+  }
+
+  li {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    width: 33%;
+    float: left;
+    @include media-breakpoint-up(md) {
+      width: auto;
+      margin: 0 0 0 .6rem;
+    }
+  }
+
+  a {
+    margin: 0 auto;
+    border-radius: $global-radius;
+    display: block;
+    width: 1.7rem;
+    height: 1.7rem;
+
+    &.facebook {
+      background: $social-icon-background get-icon(facebook, $social-icon-color) 50% 50% / 40% no-repeat;
+    }
+
+    &.twitter {
+      background: $social-icon-background get-icon(twitter, $social-icon-color) 50% 50% / 65% no-repeat;
+    }
+
+    &.instagram {
+      background: $social-icon-background get-icon(instagram, $social-icon-color) 50% 50% / 65% no-repeat;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: $primary;
+    }
+
+    @include media-breakpoint-up(md) {
+      margin: 0;
+    }
+  }
+}

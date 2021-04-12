@@ -1,0 +1,316 @@
+.gradebook,
+.assignments {
+  position: relative;
+
+  //
+  // Grade status
+  // --------------------------------------------------------------------------
+  .status {
+    padding: .05rem .3rem;
+    font-size: .8rem;
+    border-radius: $global-radius;
+    min-width: 5rem;
+
+    @include media-breakpoint-down(sm) {
+      clear: both;
+      float: none;
+    }
+
+    &-graded {
+      background-color: $bg-light-secondary;
+      color: $secondary;
+      //border: solid #b2e1b2 1px;
+    }
+  }
+}
+
+
+.assignments-grade-totals {
+  position: relative;
+
+  .fa-times {
+    cursor: pointer;
+    color: $light-gray;
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+
+    &:hover {
+      color: $medium-gray;
+    }
+  }
+}
+
+.assignments {
+  .accordian.custom {
+    .list-group-item {
+      cursor: auto;
+    }
+
+    .fa-comment-alt {
+      cursor: pointer;
+    }
+  }
+}
+
+
+.accordion.activity {
+  .btn-sm {
+    background-color: $white;
+    padding: .1rem .75rem;
+    font-size: .8rem;
+  }
+}
+
+
+.assignments {
+  .accordion .card.collapse-selected .card-header .card-icon {
+    color: $black;
+  }
+
+  .accordion .card .card-header {
+    font-size: 1rem;
+  }
+
+  .accordion .card .card-body {
+    background-color: $white;
+  }
+
+  .accordion .card.collapse-selected .card-header {
+    background-color: $white-gray;
+    color: $black;
+    font-weight: 600;
+
+    .fa-folder,
+    .fa-users  {
+      color: $medium-gray;
+    }
+  }
+
+  .fa-folder,
+  .fa-users {
+    color: $gray;
+    margin-right: .3rem;
+  }
+
+
+  .form-check-label {
+    position: relative;
+  }
+
+  .btn-options {
+    float: right;
+  }
+
+  //
+  // List group
+  // --------------------------------------------------------------------------
+  .list-group-flush {
+    padding-left: 0;
+  }
+
+  .list-group-flush .list-group-item {
+    padding-left: 0;
+    padding-right: 0;
+    border-style: dotted;
+    border-color: $light-gray;
+  }
+
+
+  //
+  // Assignment label
+  // --------------------------------------------------------------------------
+  .title {
+    width: auto;
+    @include media-breakpoint-up(md) {
+      display: inline-block;
+      float: none;
+    }
+  }
+
+  //
+  // Icon Message
+  // --------------------------------------------------------------------------
+  .icon-message {
+    color: $faded-primary;
+
+    @include media-breakpoint-up(xl) {
+      margin-left: .5rem;
+    }
+
+    &:hover,
+    &:focus {
+      color: $primary;
+
+      i {
+        font-weight: bold;
+      }
+    }
+  }
+
+  //
+  // Timestamp
+  // --------------------------------------------------------------------------
+  .timestamp {
+    position: relative;
+    padding-right: .2rem;
+    top: .1rem;
+    color: $medium-gray;
+    display: inline-block; //width: 12rem;
+    font-size: .8rem;
+    text-align: right;
+    font-weight: normal;
+    float: right;
+  }
+
+}
+
+
+
+
+//
+// Card icons
+// --------------------------------------------------------------------------
+.card-icon {
+  &.card-icon-graded {
+    color: $secondary;
+    background-color: $bg-light-secondary;
+  }
+
+  &.card-icon-pending {
+    color: desaturate(lighten($primary, 30%), 40%);
+    background-color: $bg-light-primary;
+  }
+
+  &.card-icon-sent {
+    color: lighten($orange, 15%);
+    background-color: lighten($orange, 40%);
+  }
+}
+
+
+//
+// // Gradebook, Dashboard Pending, Assignment Activity List hovers
+// --------------------------------------------------------------------------
+.list-group-item-assignment {
+  cursor: pointer;
+
+  .right-actions {
+    display: inline-block;
+    @include media-breakpoint-up(lg) {
+      float: right;
+      position: relative;
+      top: -1.4rem;
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.list-group-item-assignment .link-label {
+  color: $primary;
+}
+
+.list-group-item-assignment .link-label-disabled {
+  color: lighten($faded-primary, 5%);
+}
+
+.list-group-item-assignment:hover {
+
+  .link-label {
+    color: $dark-primary;
+  }
+
+  .text-faded {
+    color: $black;
+  }
+
+  .text-faded-danger {
+    color: $danger;
+  }
+ }
+
+.list-group-item-assignment:not(.custom):hover {
+  .card-icon-pending {
+    background-color: darken($bg-light-primary, 2%);
+    color: $primary;
+  }
+
+  .card-icon-sent {
+    background-color: lighten($orange, 37%);
+    color: darken($orange, 5%);
+  }
+
+  .card-icon-graded {
+    background-color: darken($bg-light-secondary, 2%);
+    color: $dark-secondary;
+  }
+
+  .card-icon-gray {
+    background-color: darken($white-gray, 1%);
+    color: darken($gray, 10%);
+  }
+
+}
+
+
+//
+// Custom Assignment List Hovers
+// --------------------------------------------------------------------------
+.list-group-item-assignment.custom {
+  &:hover {
+    color: $primary;
+  }
+
+  .card-icon-sent:hover {
+    background-color: lighten($orange, 37%);
+    color: darken($orange, 5%);
+  }
+}
+
+//
+// Assignment Lightbox for submitted images
+// --------------------------------------------------------------------------
+.assignments .lightbox {
+  z-index: 99999 !important;
+  width: 100%;
+  height: 100%;
+}
+
+.assignments-lightbox {
+  .lightbox__thumbnail img {
+    display: none;
+  }
+
+  .lightbox__element {
+    max-width: 1200px;
+    max-height: 100%;
+    overflow: scroll;
+  }
+
+  .lightbox__thumbnail:hover {
+    text-decoration: none;
+  }
+
+  .lightbox__thumbnail:after {
+    -webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
+    line-height: 1;
+    color: $faded-primary;
+    display: inline;
+    font-weight: 400;
+    font-variant: normal;
+    font-family: $font-icons-free;
+    content: '\f06e';
+  }
+
+  .lightbox__thumbnail:hover:after {
+    color: $primary;
+    //background-color: darken($worksheet-background-color, 3%);
+  }
+}
+
+.assignments .notify {
+  top: -1.5rem;
+}

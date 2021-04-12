@@ -1,0 +1,328 @@
+//
+// Fonts and General
+// --------------------------------------------------------------------------
+$font1: Roboto, helvetica, arial, sans-serif; //BlinkMacSystemFont,
+$font2: sans-serif; //BlinkMacSystemFont,
+
+//$font2: 'Montserrat', helvetica, arial, sans-serif;
+
+$font-icons-free: 'Font Awesome 5 Free';
+$font-icons-reg: 'Font Awesome 5 Regular';
+$font-code: 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+
+$global-radius: .25rem; // .15rem;
+$global-radius-lg: .3rem; //.15rem;
+$global-radius-sm: .2rem; // .15rem;
+
+$site-font: $font1;
+$heading-font: $font2;
+$site-max-width: 1220px;
+
+//
+// Bootstrap Overrides
+// --------------------------------------------------------------------------
+$border-radius: $global-radius;
+$border-radius-lg: $global-radius-lg;
+$border-radius-sm: $global-radius-sm;
+$tooltip-opacity: .95;
+$custom-control-indicator-size: .85rem;
+$grid-gutter-width: 20px;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1280px
+);
+
+// $container-max-widths: (
+//   sm: 540px,
+//   md: 720px,
+//   lg: 960px,
+//   xl: 1220px
+// );
+
+
+// $container-max-widths: (
+//   sm: 1215px,
+//   md: 1216px,
+//   lg: 1217px,
+//   xl: 1220px
+// );
+
+//
+// Colors
+// --------------------------------------------------------------------------
+$blue: #0072b6; //#0094de; // Primary
+$green: #1eaa73; // Secondary
+$orange: #f58223;
+$white: #fff;
+$black: #35495e; //#2e384a; // #383838;
+$red: #dc3545;
+$light-pink: #feebf0; //#f2dede;
+
+$dark-green: darken($green, 20%);
+$light-green: #e9fde4;
+$light-green2: #efffef;
+
+
+// Grays
+$gray: #d9dfe9; //#d3dce6; //#d8e2ed; //#d9dfe9;
+$light-gray: #ebeff5; //#dae4ed; // #ebeff5; //#eef0f3; //#eee;
+$light-gray2: #ddd;
+$white-gray: #f3f5f8; //#f7f7f7;
+$medium-gray: #8e98aa; //#999;
+$dark-gray: #777f8e; //#666;
+//$darkest-gray: #575e6b;
+$black-gray: darken(#777f8e, 10%);
+
+
+// Bootstrap Color Overrides
+$primary: $blue;
+$secondary: $green;
+//$gray-300: $light-gray;
+$gray-400: $gray;
+$gray-600: $medium-gray;
+$gray-900: $black;
+$input-placeholder-color: $gray-600;
+$input-color: $black;
+$component-active-bg: $primary;
+$popover-header-bg: $white-gray;
+$popover-border-color: $gray;
+
+$danger: darken($red, 10%);
+$theme-colors: (
+  primary: $primary,
+  danger: $danger
+);
+
+// Primary and Secondary Shades
+$dark-primary: darken($primary, 10%); //#0a4467
+$darker-primary: darken($primary, 1%); //#2e79a7 lighten($dark-primary, 5%);
+$black-primary: darken($primary, 30%); //#001328
+$faded-primary: desaturate(lighten($primary, 20%), 40%);  //10%
+$light-primary: saturate(lighten($primary, 55%), 40%); //#e1f1fd
+$dark-secondary: darken($secondary, 7%); //#ea6b03
+$faded-secondary: desaturate(lighten($secondary, 20%), 40%);
+$light-secondary: desaturate(lighten($secondary, 46%), 2%);
+$light2-secondary: lighten($light-secondary, 5%);
+$light3-secondary: lighten($light-secondary, 10%);
+
+
+//
+// Misc Bootstrap Overrides
+// --------------------------------------------------------------------------
+$tooltip-max-width: 300px;
+
+//
+// Layout
+// --------------------------------------------------------------------------
+$body-background-color: $white;
+$body-main-background-color: $white-gray;
+$body-text-color: $black-gray;
+$body-link-color: $dark-primary;
+$hr-color: $light-gray;
+$hr-shadow-color: $white;
+$bootstrap-border-color: #dee2e6;
+
+$bg-light-primary: lighten($primary, 60%); //50%
+$bg-light-secondary: $light3-secondary;
+$bg-light-orange: lighten($orange, 40%);
+
+//
+// Header / Masthead
+// --------------------------------------------------------------------------
+$header-box-shadow: rgba(0, 0, 18, .8);
+$header-close-background-color: $dark-primary;
+$header-text-color: $darker-primary; //darken($primary, 5%);
+
+
+//
+// Headings Color
+// --------------------------------------------------------------------------
+$heading-text-color1: $primary; //$darker-primary;
+$heading-text-color2: $primary;
+
+
+//
+// Nav Header
+// --------------------------------------------------------------------------
+$nav-header-text-color: $white;
+$nav-header-text-alt-color: rgba(255, 255, 255, .5); //lighten($primary, 20%);
+$nav-header-text-hover-color: $white;
+$nav-header-sep-color: $primary;
+// Hover
+$nav-header-hover-background-color: darken($primary, 4%);
+$nav-header-focus-background-color: darken($primary, 4%);
+
+// Dropdown
+// $dropdown-bg: $nav-header-hover-background-color;
+// $dropdown-link-color: $white;
+// $dropdown-link-hover-color: $white;
+// $dropdown-link-hover-bg: darken($nav-header-hover-background-color, 4%);
+
+// Mobile only
+$nav-header-mobile-border-color: $faded-primary;
+
+
+//
+// Sidebar
+// --------------------------------------------------------------------------
+// $sidebar-nav-text-color: $primary; //$dark-gray;
+// $sidebar-nav-text-hover-color: $dark-gray;
+// $sidebar-nav-icon-color: $gray;
+// $sidebar-nav-icon-hover-color: //$dark-gray;
+
+
+//
+// Social Icons
+// --------------------------------------------------------------------------
+$social-icon-color: $white;
+$social-icon-background: #2a2f32;
+
+
+
+//
+// Form
+// --------------------------------------------------------------------------
+// $input-border-color: #ced4da;
+$input-label-text-color: $black;
+$input-complete-text-color: $dark-green; //#22B14C;
+$input-complete-background-color: $light-green2;
+$input-placeholder-label-text-color: $medium-gray;
+$input-error-text-color: $danger;
+$input-error-background-color: rgba(255, 220, 220, .5);
+$input-dollar-color: $green;
+
+//
+// Button
+// --------------------------------------------------------------------------
+$button-text-color: $white;
+$button-background-color: $secondary;
+$button-background-hover-color: $primary; //darken($primary, 5%);
+$button-box-shadow: 0 3px 0 -1px rgba(0, 0, 0, .14);
+
+// Action
+$button-action-background-color: $secondary;
+$button-action-hover-background-color: $dark-secondary;
+
+// Light
+$button-light-background-color: linear-gradient(0deg, saturate(lighten($primary, 50%), 50%) 20%, rgba(255, 255, 255, 1) 50%);
+$button-light-hover-background-color: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
+$button-light-icon-color: $light-gray;
+
+
+//
+// Images
+// --------------------------------------------------------------------------
+$photo-border: $gray;
+
+
+//
+// Boxes
+// --------------------------------------------------------------------------
+$box-link-color: $black-gray;
+$box-link-active-color: $primary;
+$box-toc-border-color: $light-gray;
+$box-toc-icon-color: $gray;
+$box-number-color: $primary;
+
+
+//
+// Footer
+// --------------------------------------------------------------------------
+$footer-background-color: $white;
+$footer-text-color: $medium-gray;
+$footer-box-shadow: 0 -2px 4px 0 rgba(0, 0, 0, .05);
+
+
+//
+// Style Extends
+// --------------------------------------------------------------------------
+@mixin nav-transition {
+  transition: color 200ms ease-in-out, margin 200ms ease-in-out;
+}
+
+%banner-box-shadow {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .09);
+}
+
+%site-box-shadow {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
+}
+
+%button-box-shadow {
+  box-shadow: 0 2px 1px 0 rgba(0, 0, 0, .15);
+}
+
+
+%button-box-shadow-light {
+  box-shadow: 0 2px 1px 0 rgba(0, 0, 0, .03);
+}
+
+%box-style {
+  //@extend %site-box-shadow;
+  border-radius: $global-radius;
+  //border: solid $light-gray 1px;
+  background-color: $white-gray;
+}
+
+//
+// Worksheets
+// --------------------------------------------------------------------------
+$worksheet-background-color: lighten($white-gray, .5%);
+$worksheet-border-color: darken($white-gray, 3%);
+
+$worksheet-highlight-background-color: #f2f2f2;
+$worksheet-complete-color: $green; //#22B14C;
+$worksheet-grade-header-background: $light-gray; //#FBF2D7;
+$worksheet-grade-header-text-color: $medium-gray; //#D97613;
+$worksheet-grade-selectbox-text-color: $dark-gray; //#E8A713;
+$worksheet-grade-selectbox-border-color: #fbd082;
+$worksheet-grade-selectbox-background-color: $white;
+
+$general-form-hr-color: $light-gray2;
+
+$success-text-color: $green;
+$success-background-color: $light-green;
+$warning-text-color: $red;
+$warning-background-color: $light-pink;
+
+$input-complete-background-color: $light-green2;
+
+//
+// Buttons
+// --------------------------------------------------------------------------
+$button-box-shadow: 0 3px 0 -1px rgba(0, 0, 0, .14);
+
+
+//
+// Icons
+// --------------------------------------------------------------------------
+$icon-gray: darken($gray, 10%);
+$icon-file-color: $icon-gray; //#b7daf5;
+$icon-cog-color: $icon-gray;
+$icon-cog-hover-color: $dark-gray;
+$icon-user-color: $icon-gray; // #6a8bab;
+$icon-users-color: $icon-gray;
+$icon-folder-color: $icon-gray;
+$icon-pencil-color: $green;
+$toggle-chevron-color: $icon-gray;
+
+
+
+//
+// Text Box
+// --------------------------------------------------------------------------
+$textbox-h2-border-color: $light-gray;
+$textbox-h2-bg-color: $white-gray;
+$teacher-text-color: darken($dark-secondary, 5%);
+$teacher-bg-color: $light3-secondary;
+
+
+// Footer Social Icons
+$social-icon-color: $white;
+$social-icon-background: darken($black, 2%);
+$meta-icon-color: $primary;
+$meta-hover-color: $primary;

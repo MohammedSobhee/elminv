@@ -1,0 +1,215 @@
+
+//
+// Dashboard
+// --------------------------------------------------------------------------
+.dashboard h3 {
+  color: $primary;
+  margin-top: 2rem;
+  font-size: 1.3rem;
+}
+
+//
+// Messages
+// --------------------------------------------------------------------------
+.dashboard-messages {
+
+  .btn-hide-messages {
+    font-size: .8rem;
+    color: $medium-gray;
+    border-bottom: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+.dashboard-alert-wrapper .dashboard-alert:first-of-type {
+  border-radius: $global-radius 0 $global-radius $global-radius;
+}
+
+.dashboard-alert {
+  position: relative;
+  border-radius: $global-radius;
+}
+
+.dashboard-alert .alert-heading {
+  margin-bottom: .5rem;
+}
+
+.dashboard-alert-direct {
+  padding-bottom: 0;
+}
+
+.dashboard-alert-content {
+  //color: darken($dark-gray, 15%);
+  position: relative;
+  border-top: solid $light-gray 1px;
+
+  p {
+    margin-top: .5rem;
+  }
+}
+
+.dashboard-alert-updated {
+  margin-top: .5rem;
+}
+
+
+//
+// Message display markup
+// --------------------------------------------------------------------------
+.editor-message-display {
+  h2,
+  h3 {
+    color: inherit;
+  }
+
+  a {
+    color: $primary;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  h2,
+  h3 {
+    margin-top: 1rem;
+  }
+
+  div h2,
+  div h3 {
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+
+  h2 {
+    font-weight: normal;
+    font-size: 1.2rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  table {
+    border-spacing: 0;
+    border-radius: $global-radius;
+    border: solid $light-gray 1px;
+    width: 100%;
+    margin: 1rem 0;
+    font-size: .9rem;
+  }
+
+  td,
+  th {
+    border: solid $light-gray 1px;
+    padding: .5rem;
+
+    p {
+      margin: 0;
+    }
+  }
+}
+
+
+//
+// Assignments
+// --------------------------------------------------------------------------
+.dashboard-assignments {
+
+  .list-group-item {
+    font-size: .9rem;
+  }
+
+
+
+  .list-group-item-grading .graded-item {
+    padding-right: .5rem;
+  }
+
+  .list-group-item-label {
+    color: $primary;
+  }
+
+  .list-group-item-assignment:hover {
+    .list-group-item-label {
+      color: $dark-primary;
+    }
+
+    .date {
+      color: $dark-gray;
+    }
+  }
+
+  .projects .list-group-item {
+    padding: .5rem;
+    border-color: $gray;
+
+    a:hover {
+      text-decoration: none;
+    }
+  }
+
+  .pending .list-group-item {
+    padding: .5rem 0;
+  }
+
+  .usersname {
+    color: $black;
+  }
+
+
+  .date {
+    font-size: .8rem;
+    display: inline-block;
+    margin-left: .5rem;
+    color: $medium-gray;
+  }
+}
+
+
+//
+// Dashboard Chat
+// --------------------------------------------------------------------------
+.dashboard-chat-header {
+  margin-bottom: .35rem;
+
+  span {
+    @include media-breakpoint-down(sm) {
+      display: none;
+    }
+  }
+}
+
+.dashboard-chat {
+
+  .chat-right-border {
+    border: 0;
+  }
+
+  .chat-body {
+    border: solid 1px $bootstrap-border-color;
+    //border-radius: $global-radius 0 $global-radius $global-radius;
+    border-top-left-radius: $global-radius;
+    border-bottom-left-radius: $global-radius;
+    border-bottom-right-radius: $global-radius;
+
+    &-classlist {
+      border-top: 0;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
+
+  .chat-active-list {
+    min-width: 11rem;
+    border-top: solid 1px $bootstrap-border-color;
+    border-radius: 0 0 $global-radius;
+
+    &-classlist {
+      border-top: 0;
+    }
+  }
+
+}

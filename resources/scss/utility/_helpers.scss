@@ -1,0 +1,144 @@
+@mixin check {
+  border: solid $red 1px;
+}
+
+//
+// Clearfix
+// --------------------------------------------------------------------------
+@mixin clearfix($extend: 'true') {
+  @if $extend == true {
+    @extend %clearfix;
+  } @else {
+    &::after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+  }
+}
+
+%clearfix {
+  @include clearfix($extend: 'false');
+}
+
+.clearfix {
+  @include clearfix;
+
+  clear: both;
+}
+
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.bg-highlight-secondary {
+  background-color: $light3-secondary;
+}
+
+//
+// Desktop / Mobile Hide
+// --------------------------------------------------------------------------
+.desktop-hide {
+  @include media-breakpoint-up(lg) {
+    display: none;
+  }
+}
+
+.mobile-hide {
+  @include media-breakpoint-down(lg) {
+    display: none;
+  }
+}
+
+//
+// Hide screenreader text
+// --------------------------------------------------------------------------
+.ir {
+  background-color: transparent;
+  border: 0;
+  overflow: hidden;
+  color: transparent !important;
+
+  // IE 6/7 fallback
+  text-indent: -9999px;
+}
+
+.ir:before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 150%;
+}
+
+//
+// Dots BG
+// --------------------------------------------------------------------------
+// Colors
+$bg-color: #fff;
+$dot-color: $gray;
+
+// Dimensions
+$dot-size: 1px;
+$dot-space: 3px;
+
+.dots-bg {
+  background: linear-gradient(90deg, $bg-color ($dot-space - $dot-size), transparent 1%) center, linear-gradient($bg-color ($dot-space - $dot-size), transparent 1%) center, $dot-color;
+  background-size: $dot-space $dot-space;
+}
+
+.hide {
+  display: none !important;
+}
+
+//
+// Circle Image
+// --------------------------------------------------------------------------
+%circle-image {
+  width: 225px;
+  height: 225px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+
+  img {
+    margin-left: -25%;
+    display: inline;
+    margin: 0 auto;
+    width: auto;
+    height: 100%;
+  }
+  @include media-breakpoint-up(md) {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+.circle-image {
+  @extend %circle-image;
+}
+
+//
+// Fix Elementor for Absolute Menus
+// --------------------------------------------------------------------------
+#elementor {
+  z-index: 9999;
+}
+
+.elementor-placeholder-text {
+  background: $light-gray;
+  color: $medium-gray;
+  font-weight: bold;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+
+//
+// Breakpoint that Bootstrap doesn't serve?
+// --------------------------------------------------------------------------
+@mixin breakpoint-max-xs {
+  @media screen and (max-width: 320px) {
+    @content;
+  }
+}

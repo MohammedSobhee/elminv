@@ -1,0 +1,410 @@
+//
+// Textbox Style
+// --------------------------------------------------------------------------
+%textbox {
+  @include clearfix;
+  padding-bottom: 1rem;
+  margin-top: 1rem;
+  border-radius: 0;
+
+  h2 {
+    position: relative;
+    font-size: 1.1rem;
+    //margin-top: 5px;
+    margin-bottom: 0;
+    line-height: 1;
+    font-weight: 500;
+    border-radius: $global-radius;
+    background: $textbox-h2-bg-color;
+    color: $heading-text-color1;
+    @include media-breakpoint-up(lg) {
+      font-size: 1.4rem;
+    }
+
+    strong {
+      color: $heading-text-color1;
+      font-weight: inherit;
+    }
+
+    &:before,
+    &:after {
+      font-weight: bold;
+    }
+  }
+}
+
+
+//
+// Objectives / Actions / Warnings
+// --------------------------------------------------------------------------
+.section-objectives {
+  @extend %textbox;
+  clear: both;
+  margin: 1rem 0 0;
+  padding-bottom: 0;
+
+  p {
+    margin: 1rem 1rem 0;
+  }
+
+  ul {
+    list-style: none;
+    margin: .5rem 0 0;
+    padding-left: 3rem;
+    text-indent: -2rem;
+  }
+
+  li {
+
+    &:before {
+      font-family: $font-icons-free;
+      content:  '\f058';
+      font-weight: bold;
+      color: $primary;
+      margin-right: .75rem;
+    }
+
+  }
+
+  li:not(:last-child) {
+    margin-bottom: .5rem;
+  }
+
+  h2,
+  h3 {
+    background: $textbox-h2-bg-color get-icon(checkmark-box, $gray, $black) 2% 50% / 30px no-repeat;
+    margin-bottom: 1rem;
+    padding: .7rem .5rem .7rem 2.5rem;
+    @include media-breakpoint-up(lg) {
+      padding-left: 4rem;
+      background-size: 40px;
+    }
+
+    &:before,
+    &:after {
+      content: '';
+    }
+  }
+
+  // --------------------------------------------------------------------------
+  // Action / Warning
+  &.action,
+  &.warning {
+    h2,
+    h3 {
+      background-position: 1% 50%;
+      background-size: 30px;
+      padding: .7rem 2rem .7rem 2.5rem;
+      @include media-breakpoint-up(lg) {
+        padding: .7rem 0 .7rem 3.5rem;
+      }
+    }
+  }
+
+  // --------------------------------------------------------------------------
+  // Warning
+  &.warning {
+    h2,
+    h3 {
+      background-image: none;
+      padding-left: 3rem;
+      @include media-breakpoint-up(lg) {
+        padding-left: 3.5rem;
+      }
+
+      &:before {
+        position: absolute;
+        left: .75rem;
+        top: 24%;
+        color: $orange;
+        content: '\f071';
+        font-size: 1.2rem;
+        line-height: 1;
+        font-family: $font-icons-free;
+        @include media-breakpoint-up(lg) {
+          left: 1rem;
+          font-size: 1.3rem;
+          top: 25%;
+        }
+      }
+    }
+  }
+
+
+  h3,
+  h3 strong,
+  h2,
+  h2 strong {
+    color: $heading-text-color1;
+  }
+}
+
+
+
+//
+// Section - Toggle
+// --------------------------------------------------------------------------
+.section-toggle {
+  @extend %textbox;
+  padding-bottom: 0;
+  position: relative;
+
+  .section-toggle-header {
+    margin-bottom: 0 !important;
+
+    h2 {
+      border-radius: $global-radius;
+      background-image: none;
+      background-color: $textbox-h2-bg-color;
+      color: $heading-text-color1;
+      cursor: pointer;
+      margin-bottom: 0;
+
+      padding: .7rem 2rem .7rem 2.5rem;
+      @include media-breakpoint-up(lg) {
+        padding: .7rem 0 .7rem 3.5rem;
+      }
+
+      &:before,
+      &:after {
+        color: $medium-gray;
+        position: absolute;
+        line-height: 1;
+        font-family: $font-icons-free;
+      }
+
+      &:before {
+        left: .75rem;
+        font-size: 1.3rem;
+        top: 24%;
+        content: '\f15c';
+        @include media-breakpoint-up(lg) {
+          left: 1rem;
+          font-size: 1.6rem;
+          top: 25%;
+        }
+      }
+
+      &:after {
+        color: $toggle-chevron-color;
+        top: 35%;
+        right: .8rem;
+        font-size: .9rem;
+        content: '\f078';
+        @include media-breakpoint-up(lg) {
+          top: 33%;
+          right: 1rem;
+          font-size: 1rem;
+        }
+      }
+
+      strong {
+        font-weight: inherit;
+      }
+    }
+
+    &.highlight h2 {
+      color: $black;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+
+      &:before,
+      &:after {
+        color: $black;
+      }
+
+      &:after {
+        content: '\f077';
+      }
+    }
+  }
+
+  .section-toggle-content {
+    padding-top: 1rem;
+    display: none;
+    border: solid $white-gray 2px;
+    border-radius: $global-radius;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top: 0;
+    padding: 15px;
+
+    h3 {
+      border-bottom: solid $textbox-h2-border-color 1px;
+      padding-bottom: .5rem;
+      //margin-top: 2rem;
+      font-size: 1.2rem;
+    }
+
+    li:last-child,
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+  }
+}
+
+
+//
+// Section Inventionland
+// --------------------------------------------------------------------------
+.section-toggle-inventionland .section-toggle-header {
+  h2 {
+    background: $textbox-h2-bg-color get-icon(iland, $medium-gray) 3% 50% / 23px no-repeat;
+
+    @include media-breakpoint-up(lg) {
+      background-position: 2% 50%;
+      background-size: 30px;
+    }
+
+    &:before {
+      content: '';
+    }
+  }
+
+  &.highlight h2 {
+    background-image: get-icon(iland, $black);
+
+  }
+}
+
+
+//
+// Section Action
+// --------------------------------------------------------------------------
+.section-toggle-action  .section-toggle-header {
+  h2 {
+    background: $textbox-h2-bg-color get-icon(pencil-ruler3, $medium-gray) 3% 50% / 20px no-repeat;
+
+    @include media-breakpoint-up(lg) {
+      background-position: 2% 50%;
+      background-size: 25px;
+    }
+
+    &:before {
+      content: '';
+    }
+  }
+
+  &.highlight h2 {
+    background-image: get-icon(pencil-ruler3, $black);
+  }
+}
+
+//
+// Section Note
+// --------------------------------------------------------------------------
+// .section-toggle-note .section-toggle-header {
+//   h2 {
+//
+//   }
+
+//   &.highlight h2 {
+//
+//   }
+// }
+
+
+
+//
+// Section Standards
+// --------------------------------------------------------------------------
+//
+// Section - Toggle - Standards
+// --------------------------------------------------------------------------
+.section-toggle-standards {
+  color: $black-gray;
+
+  margin: 0;
+  @include media-breakpoint-up(lg) {
+    margin: 0 0 1rem;
+  }
+
+  .section-toggle-header {
+    h2 {
+      //background-image: get-icon(file-text, $medium-gray), get-icon(chevron-down, $toggle-chevron-color);
+      color: $medium-gray;
+      @include media-breakpoint-up(lg) {
+        background-position: 2% 50%, 98% 50%;
+      }
+    }
+
+    &.highlight h2 {
+      color: $black;
+      //background-image: get-icon(file-text, $black), get-icon(chevron-up, $black);
+      @include media-breakpoint-up(lg) {
+        background-position: 2% 50%, 98% 50%;
+      }
+    }
+  }
+
+
+  .elementor-shortcode {
+    h2,
+    h3 {
+      background-color: transparent;
+      border-radius: 0;
+      border-bottom: solid $textbox-h2-border-color 1px;
+      padding-bottom: .5rem;
+      margin-top: 2.5rem;
+      font-size: 1.1rem;
+    }
+
+    h2 {
+      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+    }
+
+    > ul,
+    > ol {
+      display: none;
+    }
+
+    p:first-of-type {
+      padding-top: .5rem;
+    }
+
+    b,
+    strong {
+      font-weight: 600;
+    }
+
+    strong {
+      position: relative;
+      cursor: pointer;
+      display: block;
+      padding: .5rem 1rem .5rem 1em;
+      color: $dark-gray;
+      border-radius: $global-radius;
+      background-color: $white-gray;
+
+
+
+      &:after {
+        position: absolute;
+        line-height: 1;
+        font-family: $font-icons-free;
+        color: $toggle-chevron-color;
+        top: 35%;
+        right: .8rem;
+        font-size: .9rem;
+        content: '\f078';
+        @include media-breakpoint-up(lg) {
+          top: 33%;
+          right: 1rem;
+          font-size: 1rem;
+        }
+      }
+
+
+      &.highlight {
+        color: $black;
+
+        &:after {
+          color: $black;
+          content: '\f077';
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+//
+// Notify wrapper
+// --------------------------------------------------------------------------
+.notification-wrapper {
+  position: relative;
+
+  .notification {
+    @include media-breakpoint-up(xl) {
+      position: absolute;
+      top: 0;
+    }
+
+
+    &-left {
+      left: 0;
+    }
+
+    &-right {
+      right: 0;
+    }
+  }
+}

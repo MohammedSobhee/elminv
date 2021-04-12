@@ -1,0 +1,122 @@
+//
+// No Masthead
+// --------------------------------------------------------------------------
+.masthead.section {
+  padding-top: 1rem;
+}
+
+.masthead {
+  background: url('../images/layout/masthead.jpg') 0 90% / 100% no-repeat;
+  margin-bottom: $grid-gutter-width - 10px; // comment out for course tools heading
+
+  .page-title {
+    position: relative;
+    top: .1rem;
+    font-family: $font2;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -.024rem;
+    padding: .75rem 0 .75rem 10px;
+    color: $header-text-color;
+    text-shadow: 0 0 10px $white;
+    text-align: left;
+    margin: 0;
+    //mix-blend-mode: multiply;
+    //text-shadow: -1px 0 $white, 0 1px $white, 1px 0 $white, 0 -1px $white;
+    @include media-breakpoint-up(lg) {
+      padding: 1.75rem 0 1.75rem 10px;
+    }
+  }
+
+  .page-title-wp {
+    @include media-breakpoint-up(lg) {
+      padding-left: 0;
+    }
+  }
+}
+
+.page-title-helper {
+  font-family: $font1;
+  font-size: .9rem;
+  display: inline-block;
+  color: lighten($medium-gray, 15%);
+  background-color: $white;
+  padding: .2rem .75rem 2px;
+  border: solid $gray 1px;
+  border-bottom: 0;
+  border-top-left-radius: $global-radius;
+  border-top-right-radius: $global-radius;
+  position: absolute;
+  bottom: 1px;
+  right: 20px;
+
+  @include media-breakpoint-up(lg) {
+    padding-bottom: 0;
+    right: auto;
+    left: 5px;
+  }
+}
+
+.elementor-page .masthead {
+  @include media-breakpoint-down(lg) {
+    margin-bottom: 0;
+  }
+}
+
+
+.masthead.content-container {
+  margin-top: 3rem;
+
+  h1 {
+    margin-bottom: 0;
+  }
+}
+
+//
+// Masthead Shared
+// --------------------------------------------------------------------------
+.page-title-wrapper {
+  display: block;
+  background-color: rgba(244, 249, 255, .85);
+  //background-color: rgba(243, 245, 248, .95);
+  //background-color: rgba(247, 250, 252, .85);
+  //background-color: rgba(255, 255, 255, .85);
+
+  border-top: solid $white 1px;
+  padding-bottom: .5rem;
+  @include media-breakpoint-up(lg) {
+    padding-bottom: 0;
+  }
+}
+
+
+
+.page-tagline {
+  //display: none;
+  @include media-breakpoint-up(lg) {
+    display: block;
+  }
+  width: 100%;
+  text-align: center;
+  background-color: $white;
+  padding: .2rem 1rem;
+  border: solid $gray 1px;
+  border-radius: $global-radius;
+  color: $header-text-color;
+}
+
+
+//
+// Courseware Select
+// --------------------------------------------------------------------------
+.custom-select-courseware {
+  color: $primary;
+}
+
+
+//
+// Sticky transition
+// --------------------------------------------------------------------------
+.masthead.sticky-transition {
+  margin-top: 60px;
+}

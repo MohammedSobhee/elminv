@@ -1,0 +1,227 @@
+<?php
+
+namespace App\Http\Controllers;
+use App;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+
+//validation
+use App\Http\Requests\CreateProjectPost;
+
+//models
+
+use App\Worksheet;
+use App\WorksheetAnswers;
+use App\Projects;
+use App\ProjectMembers;
+
+
+
+class WorksheetController extends BaseController {
+
+    public function show(Request $request, $id = '', $project_id = '') {
+        $this->pid = $project_id;
+        // Get Request path
+        //$requestPath = $request->path();
+
+        $g = Worksheet::find($id);
+
+      /*  if(isset($project_id)){
+          return $project_id;
+        }else{
+          return 'project_id fail';
+        }*/
+
+
+        //$title = $g->title;
+        //echo $title . '<Br>';
+
+        $gids = $g->groups()->select('group_id')->distinct()->get();
+        //print_r($gids);
+        $fld = array();
+        $data =  array();
+        $final = array();
+        foreach($gids as $gid){
+          $groups = $g->groups()
+          ->join('worksheet_form_fields','worksheet_form_field_groups.form_field_id','worksheet_form_fields.id')
+          ->leftJoin('worksheet_answers', function ($join) {
+            $join->on('worksheet_answers.form_field_id', '=', 'worksheet_form_fields.id')
+                 ->where('worksheet_answers.project_id', '=', $this->pid);
+          })
+          ->leftJoin('worksheet_group_repeats', function ($join) {
+            $join->on('worksheet_group_repeats.worksheet_id', '=','worksheet_form_field_groups.worksheet_id')
+            ->on('worksheet_group_repeats.group_id', '=','worksheet_form_field_groups.group_id')
+            ->where('worksheet_group_repeats.project_id', '=',$this->pid);
+          })
+          ->select('worksheet_form_field_groups.worksheet_id','worksheet_form_field_groups.form_field_id','worksheet_form_fields.heading','worksheet_form_fields.question','worksheet_form_fields.description','worksheet_form_fields.value','worksheet_form_fields.type','worksheet_form_fields.display_size','worksheet_answers.answer','worksheet_form_field_groups.group_id')
+          ->where('worksheet_form_field_groups.group_id',$gid->group_id)
+          ->groupBy('worksheet_form_fields.id')
+          ->orderBy('worksheet_form_field_groups.group_id','asc')->orderBy('worksheet_form_field_groups.order','asc')
+          ->get();
+
+         foreach($groups as $group){
+
+
+
+            $fields = array(
+              'form_field_id' => $group->form_field_id,
+              'heading' => $group->heading,
+              'question' => $group->question,
+              'description' => $group->description,
+              'value' => $group->value,
+              'type' => $group->type,
+              'display_size' => $group->display_size,
+              'answer' => $group->answer
+
+            );
+
+
+            array_push($data, $fields);
+
+        }
+
+
+
+         $fld = array(
+           'group_id' => $gid->group_id,
+           'settings' => array(
+             'count' => 1
+           ),
+           'fields' => $data
+          );
+
+          array_push($final, $fld);
+        }
+
+
+         //return response($groups->jsonSerialize(), Response::HTTP_OK);
+         return $final;
+       // return $groups;
+
+        // Assign view
+        //$view = view()->exists('worksheets.'.$id) ? 'worksheets.'.$id : 'worksheets.projects';
+        //$view = view()->exists($requestPath) ? $requestPath : 'worksheets.home';
+
+        // Return view
+      //  return view($view, [
+      //      'test' => $requestPath,
+      //  ]);
+    }
+
+
+    public function index(Request $request){
+        $worksheet = Worksheet::select('id','title','example','order')->orderBy('order')->get();
+        $w = $worksheet->jsonSerialize();
+
+        $projects = ProjectMembers::select('project_members.project_id','project.project_name', 'project.updated_at')
+        ->join('project','project.id','project_members.project_id')
+        ->where([
+          ['project_members.user_id',auth()->user()->id],
+          ['project.groups',0]
+          ])->get();
+
+        $p = $projects->jsonSerialize();
+
+        return view('worksheets.projects',[
+            'worksheets' => $w,
+            'projects' => $p
+        ]);
+
+    }
+
+     public function worksheet(Request $request, $id = '', $project_id) {
+        $g = Worksheet::find($id);
+
+        $this->pid = $project_id;
+        $groups = $g->groups()
+        ->join('worksheet_form_fields','worksheet_form_field_groups.form_field_id','worksheet_form_fields.id')
+        ->leftJoin('worksheet_answers', function ($join) {
+          $join->on('worksheet_answers.form_field_id', '=', 'worksheet_form_fields.id')
+               ->where('worksheet_answers.project_id', '=', $this->pid);
+        })
+        ->leftJoin('worksheet_group_repeats', function ($join) {
+          $join->on('worksheet_group_repeats.worksheet_id', '=','worksheet_form_field_groups.worksheet_id')
+          ->on('worksheet_group_repeats.group_id', '=','worksheet_form_field_groups.group_id');
+        })
+        ->select('worksheet_form_field_groups.worksheet_id','worksheet_form_field_groups.form_field_id','worksheet_form_fields.heading','worksheet_form_fields.question','worksheet_form_fields.description','worksheet_form_fields.value','worksheet_form_fields.type','worksheet_form_fields.display_size','worksheet_answers.answer','worksheet_group_repeats.group_id')
+        ->groupBy('worksheet_form_fields.id')
+        ->orderBy('worksheet_form_field_groups.group_id','asc')->orderBy('worksheet_form_field_groups.order','asc')
+        ->get();
+        return view('worksheets.worksheet', [
+            'title' => $g->title,
+            'wid' => $g->id,
+            'pid' => $project_id,
+            'initial_ws_data' => $groups->jsonSerialize()
+        ]);
+     }
+
+     public function store(Request $request, $id, $project_id){
+       $w = new WorksheetAnswers();
+
+       $w->project_id = $project_id;
+       $w->worksheet_id = $id;
+       $w->form_field_id = $request->input('form_field_id');
+
+        // Store image
+        if(preg_match("/^\s*data:([a-z]+\/[a-z]+(;[a-z\-]+\=[a-z\-]+)?)?(;base64)?,[a-z0-9\!\$\&\'\,\(\)\*\+\,\;\=\-\.\_\~\:\@\/\?\%\s]*\s*$/i", $request->input('answer'))) {
+            $image = $request->input('answer');
+            $name = time().'.' . explode('/', explode(':', substr($image, 0, strpos($image, ';')))[1])[1];
+            //from existing edu: sha1_file($_FILES['file_' . $form_id	]['tmp_name']) . "_" . $form_id . "_" . $_SESSION['userid']
+
+            $upload_year = date('Y');
+            $uploads_path = public_path('uploads/'. $upload_year);
+            \File::isDirectory($uploads_path) or \File::makeDirectory($uploads_path, 0775, true, true);
+
+            \Image::make($request->input('answer'))->save($uploads_path . '/'.$name);
+
+            $answer = $upload_year . '/' . $name;
+        // Or not
+        } else {
+            $answer = $request->input('answer');
+       }
+
+       $w->answer = $answer;
+
+
+       if(DB::table('worksheet_answers')
+       ->updateOrInsert(
+         ['form_field_id' => $request->input('form_field_id'), 'worksheet_id' => $id, 'project_id' => $project_id],
+         ['answer' => $answer]
+       )){
+         return response(null, Response::HTTP_OK);
+       }else{
+         return response()->json(['message' => 'Failed to save record'],503);
+       }
+     }
+
+     public function create_project(CreateProjectPost $request){
+        $validated = $request->validated();
+
+        $p = new Projects();
+        $p->class_id = $_SESSION['userdata']['class_id'];
+        $p->school_id = $_SESSION['userdata']['school_id'];
+        $p->project_name = $request->input('project_name');
+
+        if($p->save()){
+            //add user to project member table now
+
+            $pm = new ProjectMembers();
+            $pm->user_id = auth()->user()->id;
+            $pm->project_id = $p->id;
+            if($pm->save()){
+              return redirect()->back()->with('success','Your project was successfully created.');
+            }else{
+              return redirect()->back()->with('error','Your project was created, but we were unable to add you as a member of the project.');
+            }
+
+
+        }else{
+          return redirect()->back()->with('error','We were unable to create your project.');
+        }
+
+
+     }
+
+}

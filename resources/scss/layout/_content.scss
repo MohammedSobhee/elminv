@@ -1,0 +1,262 @@
+.page-title {
+  padding-left: 10px; // elementor
+  color: $black;
+
+  a {
+    color: $black;
+  }
+}
+
+
+a {
+  color: $primary;
+}
+
+//
+// Alignment
+// --------------------------------------------------------------------------
+.alignleft {
+  float: left;
+  margin: 0 1rem .5rem 0;
+}
+
+.alignright {
+  float: right;
+  margin: 0 0 1rem .5rem;
+}
+
+.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+//
+// Images / Videos
+// --------------------------------------------------------------------------
+.wp-caption-text {
+  font-size: .8rem;
+}
+
+.content img {
+  max-width: 100% !important;
+  height: auto;
+}
+
+
+.elementor-image .wp-caption-text {
+  color: $black;
+  text-align: left;
+  margin: .5rem .5rem 0;
+  font-size: .9rem;
+}
+
+// .elementor-top-section:first-of-type .size-full,
+// .elementor-top-section:first-of-type .size-large {
+.elementor-top-section .size-full,
+.elementor-top-section .size-large {
+  width: 100%;
+  height: auto;
+}
+
+.photo {
+  padding: .5rem;
+  border: solid 1px $photo-border;
+  //box-shadow: 0px 0px 5px rgba(0,0,0,0.25);
+}
+
+// All elementor images, videos for now
+.content .elementor img,
+.content img,
+.elementor-video-iframe {
+  border-radius: $global-radius;
+}
+
+
+//
+// Headings / Type
+// --------------------------------------------------------------------------
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 500;
+}
+
+h1 {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  //letter-spacing: -.05rem;
+  @include media-breakpoint-up(md) {
+    font-size: 2rem;
+  }
+  @include media-breakpoint-up(lg) {
+    font-size: 2.5rem;
+  }
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 1.8rem;
+  color: $heading-text-color1;
+  @include media-breakpoint-up(md) {
+    font-size: 2rem;
+  }
+  @include media-breakpoint-up(lg) {
+    font-size: 2.3rem;
+  }
+}
+
+h3 {
+  color: $black;
+  margin-top: 1rem;
+  font-size: 1.4rem;
+  @include media-breakpoint-up(lg) {
+    font-size: 1.7rem;
+  }
+}
+
+h4 {
+  font-size: 1.2rem;
+}
+
+p {
+  line-height: 1.5;
+}
+
+.content-laravel h4 {
+  font-family: $font2;
+  color: $heading-text-color1;
+}
+
+.content .elementor .elementor-text-editor li {
+  margin: 1rem 0;
+}
+
+
+.section-heading-text {
+  a {
+    color: $primary;
+    font-weight: 600;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $orange;
+    }
+  }
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.smaller {
+  font-size: .9rem;
+}
+
+//
+// Content Tips (MakerTips)
+// --------------------------------------------------------------------------
+.content-tip {
+  padding: .7rem 1rem;
+  color: $dark-primary;
+  background: $bg-light-primary;
+  border: solid lighten($light-primary, 5%) 1px;
+  border-radius: $global-radius;
+}
+
+
+
+//
+// Content Story
+// --------------------------------------------------------------------------
+.content-story {
+  padding: .7rem 1rem;
+  color: darken($orange, 15%);
+  background-color: lighten($orange, 40%);
+  border: solid lighten($orange, 30%) 1px;
+  border-radius: $global-radius;
+}
+
+//
+// Non-elementor Videos
+// --------------------------------------------------------------------------
+.video-frame {
+  position: relative;
+  padding-bottom: 56.25%; // 16:9
+  width: 100%;
+
+  iframe {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+
+//
+// 404, etc
+// --------------------------------------------------------------------------
+.error-page-header {
+  color: $white-gray;
+  font-size: 3rem;
+  text-align: center;
+  @include media-breakpoint-up(lg) {
+    font-size: 5rem;
+  }
+}
+
+.error-page-image {
+  width: 600px;
+  height: 488px;
+  margin: 3rem 0 0;
+}
+
+
+//
+// Poptip
+// --------------------------------------------------------------------------
+.poptip {
+  position: relative;
+  top: 0;
+  left: 0;
+  opacity: .8;
+  cursor: pointer;
+
+  &:after {
+    opacity: .4;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    content: '';
+    border-bottom: 2px dotted currentColor;
+  }
+}
+
+
+//
+//
+// --------------------------------------------------------------------------
+.timeline-item__content a {
+  text-decoration: underline !important;
+}
+
+
+//
+// Poster
+// --------------------------------------------------------------------------
+.poster-25 {
+  width: 25%;
+}
+
+.poster-50 {
+  width: 50%;
+}

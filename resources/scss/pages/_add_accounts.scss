@@ -1,0 +1,158 @@
+//
+// Activation Uploads
+// --------------------------------------------------------------------------
+.notify-wrapper .notify-addaccounts {
+  font-size: .8rem;
+  top: .2rem;
+  right: .5rem;
+}
+
+.add-accounts {
+  .table th {
+    border-top: 0;
+  }
+
+  .table td {
+    position: relative;
+  }
+
+  .add-note {
+    box-shadow: 0 4px 3px -1px rgba(217, 223, 233, .5);
+    position: absolute;
+    padding: .5rem .7rem;
+    border-radius: $global-radius-sm;
+    background-color: $white;
+    border: solid $gray 1px;
+    top: -2.5rem;
+    right: 0;
+
+    &.add-note-editing {
+      width: 275px;
+      top: -2.65rem;
+      right: 0;
+    }
+  }
+
+  .note-hover {
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      color: $primary;
+    }
+  }
+
+  .progress-wrapper {
+    top: .6rem;
+  }
+
+  .class-name {
+    color: $medium-gray;
+    font-size: .8rem;
+  }
+
+  .form-group .class-name {
+    position: absolute;
+    right: 2.5rem;
+
+    top: .4rem;
+  }
+
+  .class-list {
+    position: absolute;
+    width: 100%;
+    border-bottom-left-radius: $global-radius;
+    border-bottom-right-radius: $global-radius;
+    top: 50px;
+    z-index: 99;
+    max-height: 50vh;
+    overflow: auto;
+
+    .table tr:first-child th,
+    .table tr:first-child td {
+      border-top: 0;
+    }
+  }
+
+  .table-sample {
+    th,
+    td {
+      padding: 3px;
+      text-align: left;
+    }
+  }
+
+
+  tr.table-sample-error {
+    color: $danger;
+  }
+
+  .form-control:disabled {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    color: $dark-gray;
+    background-color: transparent;
+  }
+
+  .flex-processed {
+    padding-top: .2rem !important;
+    padding-bottom: .2rem !important;
+    border-bottom: dotted $gray 1px;
+
+    &:last-of-type {
+      border-bottom: 0;
+    }
+  }
+
+  .row-file .form-request-status {
+    top: .1rem;
+    right: .75rem;
+  }
+
+  .delete-action {
+    position: relative;
+    left: .2rem;
+  }
+}
+
+.add-accounts-header {
+  font-size: .85rem;
+  white-space: nowrap;
+
+  .fas,
+  .far {
+    margin-left: .5rem;
+    position: relative;
+    top: .1rem;
+    left: 0;
+  }
+
+  .fa-sort {
+    margin-left: .3rem;
+    font-size: .8rem;
+    color: $gray;
+  }
+
+  .icon-generate {
+    color: $primary;
+    font-size: .85rem;
+
+    &-inactive {
+      color: $gray;
+    }
+  }
+
+  a {
+    color: $black;
+
+    &:hover,
+    &.active {
+      color: $dark-primary;
+
+      .fa-sort {
+        color: $dark-primary;
+      }
+    }
+  }
+}

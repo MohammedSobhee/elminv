@@ -1,0 +1,272 @@
+(function($, window, document) { // eslint-disable-line
+
+    $(function() {
+        ILI.onReady();
+    });
+
+    var ILI = {
+
+        scrollSpeed: 1000,
+        $header: $('#header'),
+        $nav: $('#nav-header>li a[href="#"]'),
+        $mobileMenu: $('.mobile-menu'),
+        $inputs: $('input,select,textarea'),
+        $videoPlayBtn: $('.video-play'),
+
+
+        onReady: function() {
+            this.preventDefaults();
+            this.miscFix();
+            this.mobileMenuToggle();
+            this.navToggle();
+            this.eduSearch();
+            this.scrollToSection();
+            this.completedInputs();
+            this.fixVimeo();
+            this.ajaxloadmore();
+            this.styleBlogNav();
+        },
+
+
+        //
+        // Prevent Defauts
+        // --------------------------------------------------------------------------
+        preventDefaults: function() {
+            $('a[href="#"]').on('click', function(e) {
+                e.preventDefault();
+            });
+        },
+
+
+        //
+        // Misc Fixes
+        // --------------------------------------------------------------------------
+        miscFix: function() {
+            $('p').each(function() { // Remove empty WP <p> tags
+                var $this = $(this);
+                if($this.html().replace(/\s|&nbsp;/g, '').length == 0)
+                    $this.remove();
+            });
+        },
+
+        //
+        // Style Blog Navigation
+        // --------------------------------------------------------------------------
+        styleBlogNav: function () {
+            var $item = $('.nav-blog-item');
+            $item.each(function() {
+                var title = $(this).find('.nav-blog-title').text();
+                $(this).find('option:first-child').text(title);
+
+            });
+        },
+
+        //
+        // Search
+        // --------------------------------------------------------------------------
+        eduSearch: function() {
+            var $search = $('input[type=search]'),
+                $close = $('.search-clear'),
+                $headerSearch = $('.header-search');
+
+            (ILI.isSmallScreen() && $search.val().length > 0) && $close.show();
+
+            $search.on('keydown change focus', function() {
+                var $tclose = $(this).siblings('.search-clear');
+                $(this).val().length > 0 && $tclose.show();
+                $(this).val().length < 2 && $tclose.hide();
+            });
+
+            $close.on('click', function() {
+                $search.val('');
+            });
+
+            $('.toggle-search a').on('click', function() {
+                if(ILI.isMobile()) {
+                    $headerSearch.slideToggle('fast', function() {
+                        $(this).is(':visible') && $(this).find('input[type=search]').focus();
+                    });
+                } else {
+                    if($headerSearch.hasClass('search-show')) {
+                        $headerSearch.animate({
+                            width: '5px',
+                            'margin-left': '0'
+                        });
+                        $headerSearch.removeClass('search-show');
+                    } else {
+                        $headerSearch.find('input[type=search]').focus();
+                        $headerSearch.animate({
+                            width: '10rem',
+                            'margin-left': '1rem'
+                        });
+                        $headerSearch.addClass('search-show');
+                    }
+                }
+            });
+        },
+
+
+        //
+        // Scroll to section
+        // --------------------------------------------------------------------------
+
+        scrollToSection: function() {
+            $('.arrow-down').on('click', function () {
+                $('html, body').animate({
+                    scrollTop: $('div[data-elementor-type=post]').offset().top
+                }, ILI.scrollSpeed);
+            });
+
+            $('.scroll-to').on('click', function () {
+                $('html, body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, ILI.scrollSpeed);
+            });
+
+            // Add space for Elementor Menu Anchor link
+            $(window).on('elementor/frontend/init', function() {
+                elementorFrontend.hooks.addFilter('frontend/handlers/menu_anchor/scroll_top_distance', function(scrollTop) {
+                    return scrollTop - 50;
+                });
+            });
+        },
+
+
+        //
+        // Mobile Check
+        // --------------------------------------------------------------------------
+        isMobile: function () {
+            return $('.navbar-toggler').css("display") !== "none";  // eslint-disable-line
+        },
+
+        // Small Screen Check
+        isSmallScreen: function() {
+            return $(window).width() <= 1366; // ~~iPad Pro width or smaller~~
+        },
+
+        //
+        // Ajax Pagination
+        // --------------------------------------------------------------------------
+        ajaxloadmore: function () {
+            $('.button-load').on( 'click', function() {
+                var $button = $(this),
+                    data = {
+                        'action': 'ajax_pagination',
+                        'query': ajaxloadmore.posts,
+                        'page': ajaxloadmore.current_page,
+                        'post_count': ajaxloadmore.post_count
+                    };
+                $.ajax({
+                    url: ajaxloadmore.ajaxurl, // eslint-disable-line
+                    data: data,
+                    type: 'POST',
+                    beforeSend: function(xhr) { // eslint-disable-line
+                        $button.text('Loading...');
+                    },
+                    success: function(data) {
+                        if(data) {
+                            var $scrollTo = $button.parent().prev().children(':last-child'); // set last post
+                            $button.text('Load more posts').parent().prev().append(data); // insert posts
+
+                            $('html, body').animate({
+                                scrollTop: $scrollTo.next().offset().top - 50
+                            }, ILI.scrollSpeed); // scroll to first new post
+
+                            ajaxloadmore.current_page++; // increment current
+                            if(ajaxloadmore.current_page === ajaxloadmore.max_page)
+                                $button.remove(); // last page, remove
+                        } else {
+                            $button.remove(); // no data, remove
+                        }
+                    }
+                });
+            });
+        },
+
+
+        //
+        // Completed input elements
+        // --------------------------------------------------------------------------
+        completedInputs: function() {
+            this.$inputs.on('blur', function() {
+                $(this).each(function() {
+                    $(this).val() && $(this).addClass('completed');
+
+                });
+            });
+        },
+
+
+        //
+        // Nav Toggle
+        // --------------------------------------------------------------------------
+        navToggle: function() {
+            this.$nav.on('click', function(e) {
+
+                var $subMenu = $(this).parent().children('ul'), // This sub
+                    $thisMenu = $(e.target).parent().children(); // This target's sub
+
+                ILI.$nav.removeClass('active'); // Remove active from all top level links
+                $(this).addClass('active'); // Add active to this
+
+                // Remove active from all subs but this
+                ILI.$nav.parent().children('ul').not($thisMenu).each(function() {
+                    if ($(this).css('display') == 'block') {
+                        $(this).removeClass('active-sub').hide();
+                    }
+                });
+
+                // Add active to this
+                $(this).addClass('active');
+
+                // Toggle this sub if mobile, show if not
+                ILI.isMobile() ? $subMenu.toggle() : $subMenu.show();
+                //$subMenu.toggle(); Click only
+
+            });
+        },
+
+
+        // Mobile Menu Toggle
+        // --------------------------------------------------------------------------
+        mobileMenuToggle: function() {
+            this.$mobileMenu.click(function() {
+                $('.nav-header').toggle('slide');
+                $(this).toggleClass('close');
+                ILI.$header.toggleClass('close');
+            });
+        },
+
+
+        //
+        // Fix various youtube issues
+        // --------------------------------------------------------------------------
+        fixVimeo: function () {
+            // Vimeo / Mashable
+            $('iframe[src*="https://player.vimeo.com"], iframe[src*="https://mashable.com"]')
+                .each(function () {
+                    videoFrame($(this));
+                });
+
+            function videoFrame(video) {
+                if(!video.parent().hasClass('video-frame')) {
+                    video.wrap('<div class="video-frame"></div>');
+                }
+            }
+        },
+    };
+}(window.jQuery, window, document));
+
+
+
+//Browserupdate.org
+/* eslint-disable */
+var $buoop = { vs: { i: 10, f: -4, o: -4, s: 8, c: -4 }, api: 4 };
+
+function $buo_f() {
+    var e = document.createElement("script");
+    e.src = "//browser-update.org/update.min.js";
+    document.body.appendChild(e);
+};
+try { document.addEventListener("DOMContentLoaded", $buo_f, false) } catch (e) { window.attachEvent("onload", $buo_f) }
+/* eslint-enable */

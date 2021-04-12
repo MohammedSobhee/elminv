@@ -1,0 +1,148 @@
+//
+// Worksheet Form
+// --------------------------------------------------------------------------
+.form-worksheet {
+  background-color: $worksheet-background-color;
+  border: solid $worksheet-border-color 1px;
+  padding: 1rem;
+  @include media-breakpoint-up(lg) {
+    padding: 2rem;
+  }
+
+  label {
+    font-size: .85rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &.form-worksheet-dim {
+    background-color: darken($worksheet-background-color, 2%);
+  }
+
+  input:disabled,
+  textarea:disabled,
+  select:disabled {
+    background-color: $white;
+  }
+
+  .form-wrapper-file {
+    border-color: $input-border-color;
+  }
+
+  // .saved {
+  //   input:disabled,
+  //   textarea:disabled,
+  //   select:disabled {
+  //     background-color: lighten($light2-secondary, 5%);
+  //   }
+  // }
+
+  .form-check-input:disabled ~ .form-check-label {
+    color: $black;
+  }
+}
+
+.form-worksheet-group {
+  border: dashed $input-border-color 1px;
+  border-radius: $border-radius;
+}
+
+
+//
+// Worksheet text, paragraph, images
+// --------------------------------------------------------------------------
+.form-worksheet {
+  .form-field-wrapper {
+    position: relative;
+
+
+    .form-worksheet-text {
+      margin-top: 1rem;
+    }
+  }
+
+  .form-worksheet-text {
+    img {
+      // width: 135px;
+      // height: 135px;
+      width: 100%;
+      height: auto;
+      border: solid $light-gray 1px;
+      background-color: $white;
+      padding: .2rem;
+    }
+
+    h4 small {
+      font-size: 90%;
+    }
+  }
+}
+
+
+
+
+
+//
+// Vue: Worksheet
+// --------------------------------------------------------------------------
+// Vue Pure Light Box - Worksheet Example
+.form-worksheet-example {
+  position: relative;
+
+  .lightbox__thumbnail img {
+    display: none;
+  }
+
+  .lightbox__element {
+    max-width: 1200px;
+    max-height: 100%;
+    //overscroll-behavior:
+    overflow: scroll;
+  }
+
+  .lightbox__thumbnail:before {
+    z-index: 2;
+    font-family: $font-icons-free;
+    font-size: .9rem;
+    font-weight: bold;
+    content: '\f059';
+    color: $medium-gray;
+    position: absolute;
+    top: -.9rem;
+    right: 6rem;
+
+    @include media-breakpoint-up(lg) {
+      top: -1.95rem;
+      right: 5rem;
+    }
+  }
+
+  .lightbox__thumbnail:after {
+    position: absolute;
+    top: -1rem;
+    right: -1rem;
+
+    @include media-breakpoint-up(lg) {
+      top: -2rem;
+      right: -2rem;
+    }
+
+    color: $medium-gray;
+    background-color: darken($worksheet-background-color, 2%);
+    border-left: solid $white 1px;
+    border-bottom: solid $white 1px;
+    padding: .15rem .5rem .3rem 2rem;
+    border-top-right-radius: $global-radius;
+    border-bottom-left-radius: $global-radius;
+    font-size: .8rem;
+    content: 'View an example';
+  }
+
+  .lightbox__thumbnail:hover:after {
+    background-color: darken($worksheet-background-color, 3%);
+  }
+}

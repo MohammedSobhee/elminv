@@ -1,0 +1,182 @@
+.main {
+  position: relative;
+  display: block;
+  padding-bottom: 2rem;
+  //min-height: 35rem;
+  background-color: $white;
+  flex: 1; // Keep footer at bottom
+  @include media-breakpoint-up(lg) {
+    padding-bottom: 5rem;
+  }
+}
+
+.container .row {
+  position: relative;
+}
+
+.elementor-page .content {
+  padding-left: 0;
+  padding-right: 0;
+
+  @include media-breakpoint-down(lg) {
+    .page {
+      padding-top: 15px;
+    }
+  }
+}
+
+.content-laravel {
+  margin-top: 10px;
+}
+
+.main-overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 70;
+  cursor: pointer;
+  background:  rgba(255, 255, 255, .9);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .85) 47%, rgba(255, 255, 255, .9) 100%); // sass-lint:disable-line no-duplicate-properties
+  @include media-breakpoint-up(lg) {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .9) 30%, rgba(255, 255, 255, .9) 100%);
+  }
+}
+
+
+//
+// Default wrapper
+// --------------------------------------------------------------------------
+.content-default-layout {
+  position: relative;
+  margin-top: .5rem;
+  @include media-breakpoint-up(md) {
+    margin-top: $grid-gutter-width;
+  }
+}
+
+
+.container-laravel {
+  margin-top: $grid-gutter-width / 2; // Compensate for elementor padding fix
+}
+
+//
+// Layout - Section Padding
+// --------------------------------------------------------------------------
+.section-top,
+.section {
+  overflow: auto;
+  padding: 1rem 0;
+
+  &.no-padding {
+    padding: 0;
+  }
+
+  @include media-breakpoint-up(md) {
+    padding: 4rem 0;
+  }
+}
+
+
+//
+// Layout - General
+// --------------------------------------------------------------------------
+hr {
+  margin: 2.5rem 0;
+  border: 0;
+  border-top: 1px solid $hr-color;
+}
+
+.full-width {
+  width: 100% !important;
+  float: none !important;
+}
+
+.center {
+  text-align: center !important;
+  margin: 0 auto !important;
+
+  h2 {
+    text-align: center !important;
+  }
+}
+
+//
+// Layout - Content Container
+// --------------------------------------------------------------------------
+.content-container {
+  height: 100%;
+  width: 100%;
+  padding: 0 5%;
+  max-width: $site-max-width;
+  position: relative;
+  margin: 0 auto;
+
+  @include media-breakpoint-up(lg) {
+    padding: 0;
+  }
+}
+
+// Elementor fix
+@include media-breakpoint-down(sm) {
+  .elementor-top-section > .elementor-container {
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+
+  .block-layout > .elementor-container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+//
+// Block Layout
+// --------------------------------------------------------------------------
+.block-layout {
+  background-color: $light-gray;
+
+  .elementor-widget-text-editor,
+  .elementor-image {
+    margin: 0;
+    padding: 1rem;
+
+    @include media-breakpoint-up(lg) {
+      max-width: 610px; // 650px
+      padding: 3rem;
+    }
+  }
+
+  .elementor-col-50:nth-of-type(1) {
+    .elementor-widget-wrap {
+      justify-content: flex-end;
+    }
+
+    .elementor-widget-text-editor,
+    .elementor-image {
+      @include media-breakpoint-up(lg) {
+        float: right;
+      }
+    }
+  }
+}
+
+//
+// Layout - Blank page
+// --------------------------------------------------------------------------
+.elementor-blank-page > div > .entry > .elementor > .elementor-inner > .elementor-section-wrap > .section {
+  padding-top: 8rem;
+
+  @include media-breakpoint-up(xl) {
+    padding-top: 12rem;
+  }
+}
+
+// Hide wp log pixel
+.wp-log {
+  display: none;
+}

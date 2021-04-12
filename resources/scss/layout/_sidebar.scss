@@ -1,0 +1,218 @@
+
+//
+// Sidebar
+// --------------------------------------------------------------------------
+.sidebar {
+  position: relative;
+  font-size: .8rem;
+
+  &-duedate {
+    color: $faded-secondary;
+  }
+
+  .sidebar-header {
+    margin-top: 20px;
+    margin-bottom: 0;
+    font-size: .9rem;
+    font-family: $font1;
+    color: $white;
+    background-color: $primary;
+    border-top-left-radius: $global-radius;
+    border-top-right-radius: $global-radius;
+
+    &:first-of-type {
+      margin-top: 10px;
+    }
+
+    &:hover {
+      background-color: darken($primary, 3%);
+    }
+
+    a,
+    span {
+      @include nav-transition;
+      display: block;
+      padding: .7rem .5rem .7rem 1rem;
+      text-decoration: none;
+      color: $white;
+    }
+
+    a:hover {
+      margin-left: .2rem;
+    }
+
+    .fas {
+      opacity: .5;
+    }
+
+
+    //
+    // Custom Assignments Sidebar Header
+    // --------------------------------------------------------------------------
+    &-assignments {
+      background-color: $secondary;
+
+      &:hover {
+        background-color: darken($secondary, 3%);
+      }
+    }
+  }
+}
+
+
+
+//
+// Sidebar menu
+// --------------------------------------------------------------------------
+.sidebar-menu {
+  border-radius: $global-radius;
+  padding: 0;
+  margin-bottom: 0;
+  // margin-top: 20px; // Elementor populated padding course tools menu
+  // margin-bottom: 0;
+  // margin-top: 10px;
+
+  li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    line-height: inherit;
+    border-bottom: solid $white 1px;
+    background-color: $bg-light-primary;
+
+    &:hover,
+    &:focus {
+      background-color: darken($bg-light-primary, 2%);
+    }
+
+
+
+    // &:first-child {
+    //   border-top-left-radius: $global-radius;
+    //   border-top-right-radius: $global-radius;
+    // }
+
+    &:last-child {
+      border-bottom-left-radius: $global-radius;
+      border-bottom-right-radius: $global-radius;
+      border-bottom: 0;
+    }
+  }
+
+  li a {
+    @include nav-transition;
+    display: block;
+    text-decoration: none;
+    //padding-left: 1rem;
+    padding: .7rem .5rem .7rem 2rem;
+
+    color: $primary;
+    outline: none;
+    text-indent: -.5rem;
+
+    // Demo disable
+    &[data-toggle='tooltip'] {
+      color: $faded-primary;
+    }
+
+    &:before {
+      display: inline-block;
+      font-family: $font-icons-free;
+      font-weight: 900;
+      color: darken($bg-light-primary, 10%);
+      content: '\f054';
+      position: relative;
+      top: -2px;
+      margin: 0 6px 0 0;
+      font-size: 10px;
+    }
+
+    &:hover,
+    &:focus {
+      margin-left: .2rem;
+    }
+  }
+
+  //
+  // Page Has Children
+  // --------------------------------------------------------------------------
+  .page_item_has_children .children {
+    padding-left: 0;
+
+    a {
+      padding-left: 2.7rem;
+    }
+  }
+
+  //
+  // Current Page
+  // --------------------------------------------------------------------------
+  li.current_page_item {
+    background-color: darken($bg-light-primary, 2%);
+
+    > a {
+      color: $dark-primary;
+
+      &:before {
+        color: $black;
+      }
+    }
+  }
+
+  //
+  // Custom Assignments sidebar
+  // --------------------------------------------------------------------------
+  &-assignments {
+    li {
+      background-color: $bg-light-secondary;
+
+      &:hover,
+      &:focus {
+        background-color: darken($bg-light-secondary, 2%);
+      }
+    }
+
+    li a {
+      &:before {
+        color: desaturate(darken($bg-light-secondary, 15%), 20%);
+      }
+
+      &,
+      &:hover,
+      &:focus {
+        color: $dark-secondary;
+      }
+    }
+
+    li.current_page_item {
+      background-color: darken($bg-light-secondary, 2%);
+    }
+  }
+}
+
+
+
+
+.sidebar-drop-menu-btn,
+.sidebar-hidden-menu-btn {
+  display: none;
+}
+
+//
+// Sidebar select
+// --------------------------------------------------------------------------
+.sidebar-select {
+  padding: 1rem;
+  color: $secondary;
+
+}
+
+.custom-select-sidebar {
+  margin-top: .3rem;
+  color: $dark-secondary; //darken($secondary, 3%);
+}
+
+
+.expand-content {
+  margin-top: 20px;
+}

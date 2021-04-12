@@ -1,0 +1,160 @@
+//
+// Boxes
+// --------------------------------------------------------------------------
+.box-style {
+  @extend %box-style;
+}
+
+.box {
+  @extend %box-style;
+  padding: 5%;
+
+  li {
+    margin-bottom: 1rem;
+
+    a {
+      color: $box-link-color;
+    }
+
+    &.active a {
+      color: $box-link-active-color;
+    }
+
+  }
+
+  p:last-child,
+  li:last-child {
+    margin-bottom: 0;
+  }
+
+
+  //
+  // Boxed Tables
+  // --------------------------------------------------------------------------
+  &-table {
+    padding: 0;
+
+    .alert {
+      padding-left: 1.5rem;
+      margin-top: 1rem;
+      @include media-breakpoint-up(lg) {
+        display: inline-block;
+      }
+    }
+  }
+
+  // Box Aside and TOC Content
+  &-aside,
+  &-toc {
+    h3 {
+      font-size: 1.2rem;
+      font-weight: normal;
+      text-align: center;
+      @include media-breakpoint-up(md) {
+        font-size: 1rem;
+      }
+    }
+
+    ul {
+      margin: 1.5rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+  }
+
+  //
+  // Boxed Aside
+  // --------------------------------------------------------------------------
+  &-aside {
+    padding: 10%;
+    margin: 0 0 2rem;
+
+    h3 {
+      text-align: left;
+    }
+  }
+
+  //
+  // Boxed Login Form
+  // --------------------------------------------------------------------------
+  &-login {
+    padding: 3rem;
+    margin: 0 auto;
+
+    h3 {
+      font-weight: normal;
+      font-size: 1.2rem;
+    }
+    @include media-breakpoint-up(md) {
+      max-width: 400px;
+    }
+  }
+
+
+  //
+  // Boxed Content
+  // --------------------------------------------------------------------------
+  &-content {
+    //padding-top: 3%;
+    h2 {
+      margin-top: 0;
+      border-bottom: solid $hr-color 1px;
+      padding: 0 0 1rem;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+
+    ul,
+    ol {
+      margin-left: 0;
+      padding-left: 2rem;
+    }
+  }
+
+
+  //
+  // Menu Message
+  // --------------------------------------------------------------------------
+  .menu-message {
+    padding: 0;
+  }
+}
+
+
+
+
+
+//
+// Box Actions
+// --------------------------------------------------------------------------
+
+.box-actions {
+  overflow: auto;
+  padding: 1rem 0;
+  text-align: right;
+
+  .pagination {
+    float: left;
+  }
+
+  .btn-action-light {
+    width: auto;
+    display: inline-block !important;
+    float: left;
+  }
+
+  .btn-action {
+    display: inline-block;
+
+    &.left {
+      float: left;
+    }
+  }
+
+  .download span {
+    @include breakpoint-max-xs {
+      display: none;
+    }
+  }
+
+}

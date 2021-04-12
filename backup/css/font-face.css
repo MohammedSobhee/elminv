@@ -1,0 +1,22 @@
+@font-face {
+  font-family: 'SF Pro Display';
+  src:
+  url('fonts/sf-pro-display-regular-webfont.woff2') format('woff2'),
+  url('fonts/sf-pro-display-regular-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src:
+  url('fonts/sf-pro-display-semibold-webfont.woff2') format('woff2'),
+  url('fonts/sf-pro-display-semibold-webfont.woff') format('woff');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src:
+  url('fonts/sf-pro-display-bold-webfont.woff2') format('woff2'),
+  url('fonts/sf-pro-display-bold-webfont.woff') format('woff');
+  font-weight: bold;
+}

@@ -1,0 +1,284 @@
+//
+// General Button
+// --------------------------------------------------------------------------
+%button {
+  display: inline-block;
+  border-radius: $global-radius !important;
+  color: $button-text-color;
+  //font-weight: 600;
+  padding: .8rem 1.5rem;
+  cursor: pointer;
+  line-height: 1;
+
+  @include nav-transition;
+  background-color: $button-background-color;
+  box-shadow: $button-box-shadow;
+
+  &:hover {
+    background-color: $button-background-hover-color;
+  }
+
+  .fa {
+    font-size: smaller;
+    margin-left: 5px;
+    color: rgba(255, 255, 255, .5);
+  }
+}
+
+//
+// Elementor Button
+// --------------------------------------------------------------------------
+.elementor-widget-button a.elementor-button,
+.button {
+  @extend %button;
+}
+
+form .elementor-button {
+  border-radius: $global-radius !important;
+}
+
+.elementor-form .elementor-button {
+  @extend %button;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+
+  &.elementor-size-sm {
+    @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-line-height-sm, $btn-border-radius-sm);
+  }
+
+  &.elementor-size-md {
+    @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-line-height-lg, $btn-border-radius-lg);
+    font-size: 1rem;
+  }
+}
+
+// Challenge remote download
+// .elementor-widget-button.button-remote a.elementor-button {
+//   background-color: desaturate(lighten($button-background-color, 10%), 20%);
+
+//   &:hover {
+//     background-color: desaturate(lighten($button-background-hover-color, 10%), 20%);
+//   }
+// }
+
+.elementor-widget-button.button-remote a.elementor-button {
+  background-color: darken($button-background-color, 10%);
+
+  &:hover {
+    background-color: darken($button-background-hover-color, 10%);
+  }
+}
+
+
+//
+// Links with arrows only
+// --------------------------------------------------------------------------
+.link-arrow {
+  position: relative;
+  padding-right: 1rem;
+  color: $primary;
+
+  &:after {
+    position: absolute;
+    right: 0;
+    margin-left: .5rem;
+    font-size: 1.1rem;
+    font-family: $font-icons-free;
+    content: '\f0da';
+  }
+
+  &.paused:after {
+    top: .2rem;
+    right: -.3rem;
+    font-size: .75rem;
+    content: '\f04c';
+    @include media-breakpoint-up(lg) {
+      top: .1rem;
+    }
+  }
+}
+
+.link-arrow.link-video {
+
+  &:after {
+    right: -.3rem;
+    font-size: 1rem;
+    content: '\f144';
+  }
+}
+
+
+
+//
+// Action
+// --------------------------------------------------------------------------
+.btn-action {
+  background-color: $button-action-background-color;
+  color: $button-text-color;
+
+  &:focus,
+  &:hover {
+    color: $button-text-color;
+    background-color: $button-action-hover-background-color;
+  }
+}
+
+
+//
+// Legacy
+// --------------------------------------------------------------------------
+//
+// Expand Lists Button
+// --------------------------------------------------------------------------
+.expand-lists {
+  text-align: left;
+  position: relative;
+  padding-right: 2rem;
+
+  &:after {
+    position: absolute;
+    right: .5rem;
+    top: 28%;
+    font-size: .7rem;
+    font-weight: 900;
+    font-family: $font-icons-free;
+    content: '\f078';
+    opacity: .8;
+    //top: -.02rem;
+  }
+
+  &.collapsed:after {
+    content: '\f077';
+
+  }
+}
+
+
+//
+// Buttons - Previous / Next
+// --------------------------------------------------------------------------
+.btn-prev-next .elementor-button {
+  min-width: 8rem;
+}
+
+.btn-prev-next .elementor-button-text:after,
+.btn-prev-next .elementor-button-text:before {
+  opacity: .5;
+  font-family: $font-icons-free;
+  font-weight: 900;
+}
+
+.btn-next .elementor-button-text:after {
+  margin-left: 1rem;
+  content: '\f0da';
+}
+
+.btn-prev .elementor-button-text:before {
+  margin-right: 1rem;
+  content: '\f0d9';
+}
+
+
+
+//
+// File button
+// --------------------------------------------------------------------------
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: $white;
+  cursor: inherit;
+  display: block;
+}
+
+
+//
+// Add Field
+// --------------------------------------------------------------------------
+.btn-add,
+.btn-minus {
+  position: relative;
+  font-size: .7rem;
+  color: $dark-gray;
+  padding-right: 1.75rem;
+  background-color: $white !important;
+  // background:
+  // $white
+  // url('data:image/svg+xml;charset=utf8,%3Csvg%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20fill%3D%22%23ccc%22%20d%3D%22m12%202c5.514%200%2010%204.486%2010%2010s-4.486%2010-10%2010-10-4.486-10-10%204.486-10%2010-10zm0-2c-6.627%200-12%205.373-12%2012s5.373%2012%2012%2012%2012-5.373%2012-12-5.373-12-12-12zm6%2013h-5v5h-2v-5h-5v-2h5v-5h2v5h5z%22%2F%3E%3C%2Fsvg%3E')
+  // right .5rem top 50% / 12% no-repeat;
+
+  &:after {
+    position: absolute;
+    top: .3rem;
+    right: .5rem;
+    margin-left: .5rem;
+    color: $gray;
+    font-family: $font-icons-free;
+    font-size: .7rem;
+  }
+
+  &:focus {
+    color: $dark-gray;
+    outline: none;
+  }
+
+  // &:after {
+  //   display: block;
+  //   font-size: .6rem;
+  //   color: $medium-gray;
+  //   font-family: $font-icons-free;
+  //   font-weight: 900;
+  //   content: '\f0fe';
+  //   margin-left: .5rem;
+  // }
+}
+
+.btn-add:after {
+  content: '\f0fe';
+}
+
+.btn-minus:after {
+  content: '\f146';
+}
+
+
+.btn:not(.btn-open-chat) .fas {
+  opacity: .6;
+  margin-left: .5rem;
+}
+
+.section-previous-next {
+  margin-top: 1rem;
+
+  .elementor-column.elementor-col-50 {
+    width: 50% !important;
+  }
+}
+
+
+//
+// Link
+// --------------------------------------------------------------------------
+.link {
+  padding: 0;
+  border: 0;
+  text-decoration: underline;
+  color: $primary;
+
+  &:hover {
+    color: $dark-primary;
+  }
+}

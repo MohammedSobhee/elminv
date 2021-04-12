@@ -1,0 +1,25 @@
+//
+// Site Nav  Colors
+// --------------------------------------------------------------------------
+@mixin nav-colors($color: '#fff') {
+  a {
+    border-color: $color;
+  }
+
+  a:hover,
+  a:focus,
+  &.current-menu-item a,
+  &.current-menu-ancestor a,
+  &.current-menu-parent a,
+  &.current_page_parent a {
+    color: $color;
+    border-color: $color;
+  }
+}
+
+//
+// Transitions
+// --------------------------------------------------------------------------
+@mixin transition ($time) {
+  transition: all $time ease-in-out;
+}

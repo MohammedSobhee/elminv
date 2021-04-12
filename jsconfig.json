@@ -1,0 +1,6 @@
+{
+    "include": [
+        "public/assets/js/**/*",
+        "resources/js/**/*"
+    ]
+}

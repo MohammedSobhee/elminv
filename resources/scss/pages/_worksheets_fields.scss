@@ -1,0 +1,112 @@
+// Step 2: Pre-Development Patent Search - Drawings look similar
+.wfieldwrapper106 .form-group {
+  @include media-breakpoint-up(lg) {
+    position: relative;
+    top: 2rem;
+  }
+}
+
+// Step 2: Pre-Development Targeting a Corporation - Checkbox First
+div[class*='wfieldwrapper113'] .form-group {
+  white-space: nowrap;
+  @include media-breakpoint-up(lg) {
+    position: relative;
+    top: 2rem;
+
+    .form-request-status {
+      margin-left: 0;
+      top: -1rem;
+      left: 0;
+      right: 0;
+    }
+  }
+}
+
+// Step 5: Concept Model
+div[class*='wfieldwrapper146'] .form-group {
+  &:before {
+    display: inline-block;
+    position: relative;
+    font-size: .85rem;
+    content: 'Upload Image:';
+    margin: .15rem 0 .5rem;
+  }
+
+  label {
+    display: none;
+  }
+}
+
+// Step 7: Package Design
+.wfieldwrapper174 {
+  border-top: solid $bootstrap-border-color 1px;
+  padding-top: 1.5rem;
+}
+
+.wfieldwrapper179 {
+  margin-top: 1rem;
+}
+
+.wfieldwrapper183 {
+  @include media-breakpoint-up(lg) {
+    position: relative;
+    top: 2rem;
+  }
+}
+
+.wfieldwrapper185 {
+  border-top: solid $bootstrap-border-color 1px;
+  padding-top: 1rem;
+}
+
+.wfieldwrapper184 {
+  border-top: solid $bootstrap-border-color 1px;
+  @include media-breakpoint-up(lg) {
+    padding-top: 4.7rem;
+  }
+}
+
+// Step 8: Graphic Design
+.form-worksheet-11 p {
+  font-size: .85rem;
+}
+
+.wfieldwrapper206 {
+  border-top: solid $bootstrap-border-color 1px;
+  padding-top: 1rem;
+}
+
+.wfieldwrapper205 {
+  border-top: solid $bootstrap-border-color 1px;
+  @include media-breakpoint-up(lg) {
+    padding-top: 2.2rem;
+  }
+}
+
+// Shooting Script
+.wfieldwrapper723,
+.wfieldwrapper724,
+.wfieldwrapper725 {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: solid $bootstrap-border-color 1px;
+}
+
+.form-worksheet-21 {
+  h4 {
+    font-size: 100%;
+    font-weight: normal;
+    margin-bottom: 0;
+  }
+}
+
+// Location Worksheet
+.wfieldwrapper1124 .form-worksheet-text,
+.wfieldwrapper1125 .form-worksheet-text,
+.wfieldwrapper1126 .form-worksheet-text {
+  margin-top: 0 !important;
+}
+
+div[class*='wfieldwrapper1127'] .form-worksheet-text {
+  margin-top: 0 !important;
+}

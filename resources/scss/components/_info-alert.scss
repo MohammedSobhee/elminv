@@ -1,0 +1,28 @@
+//
+// Info alert
+// --------------------------------------------------------------------------
+// sass-lint:disable placeholder-in-extend
+.info-alert {
+  @extend .border;
+  @extend .py-2;
+  @extend .px-3;
+  margin-bottom: 1rem;
+  border-radius: $global-radius;
+
+  .info-icon {
+    @extend .mr-2;
+    color: $primary !important;
+  }
+
+  .info-close {
+    float: right;
+    position: relative;
+    top: .2rem;
+    left: 0;
+    color: $gray;
+
+    &:hover {
+      color: $medium-gray;
+    }
+  }
+}

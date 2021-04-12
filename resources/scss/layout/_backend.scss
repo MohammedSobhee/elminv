@@ -1,0 +1,269 @@
+//
+// Bootstrap-like Additions
+// --------------------------------------------------------------------------
+
+.bg-light-primary {
+  background-color: $bg-light-primary;
+}
+
+.bg-error {
+  background-color: $input-error-background-color;
+}
+
+.bg-light-secondary {
+  background-color: $bg-light-secondary;
+}
+
+.bg-light-orange {
+  background-color: $bg-light-orange;
+}
+
+.text-dark-secondary {
+  color: $dark-secondary !important;
+}
+
+.text-dark-primary {
+  color: $dark-primary !important;
+}
+
+.text-gray, {
+  color: $medium-gray;
+}
+
+.text-light-gray {
+  color: $gray;
+}
+
+.text-white-gray {
+  color: $white-gray;
+}
+
+.text-faded {
+  color: $text-muted;
+}
+
+.text-faded-danger {
+  color: desaturate(lighten($danger, 20%), 20%);
+}
+
+.text-orange {
+  color: darken($orange, 5%);
+}
+
+.text-dark-gray,
+.text-dark-gray a {
+  color: darken($dark-gray, 10%);
+}
+
+.text-success a {
+  color: $success;
+}
+
+.bg-white-gray {
+  background-color: $white-gray !important;
+}
+
+.bg-white {
+  background-color: $white !important;
+}
+
+.input-border {
+  border: solid $input-border-color 1px;
+}
+
+.badge-pending {
+  color: $orange;
+  background-color: lighten($orange, 40%);
+  border: solid lighten($orange, 30%) 1px;
+}
+
+
+.alternate-bg {
+  &:nth-child(odd) {
+    border-top: 1px solid $hr-color;
+    border-bottom: 1px solid $hr-color;
+    background-color: $white-gray;
+  }
+
+  &:nth-child(even) {
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+  }
+
+  &:last-of-type {
+    border-bottom: 0;
+    border-bottom-left-radius: $global-radius;
+    border-bottom-right-radius: $global-radius;
+  }
+}
+
+.medium {
+  font-size: .9rem;
+}
+
+.smaller {
+  font-size: .8rem;
+}
+
+//
+// Misc
+// --------------------------------------------------------------------------
+
+// Fix course tools menu issue
+.lightbox {
+  z-index: 999 !important;
+}
+
+// Form delete class (EditClass.vue)
+.form-delete-class {
+  position: relative;
+  top: 1rem;
+  @include media-breakpoint-up(lg) {
+    top: -.5rem;
+  }
+}
+
+// Vue: Edit Team / Member
+.validation-message {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+// Modal Status
+.modal-status {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+//
+// Misc Icons
+// --------------------------------------------------------------------------
+// Spinning icon
+.fa-circle-notch {
+  animation: spinanimation 2s linear infinite;
+}
+
+@keyframes spinanimation {
+  from {
+    transform: rotateZ(0deg);
+  }
+
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+// Question icon
+.fa-question-circle {
+  color: $gray;
+
+  &:hover {
+    color: $primary;
+  }
+}
+
+
+//
+// Misc Actions
+// --------------------------------------------------------------------------
+.action-top {
+  background-color: $bg-light-primary;
+  color: $primary;
+}
+
+.slider-trash {
+  color: $gray; //lighten(desaturate($danger, 50%), 20%);
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+
+  &:hover {
+    color: $medium-gray;
+  }
+}
+
+.bottom-btn-wrapper {
+  position: relative;
+  top: 1rem;
+  display: inline-block;
+  float: right;
+}
+
+.delete-action {
+  color: $gray;
+
+  &:hover {
+    color: $danger;
+  }
+}
+
+.edit-action {
+  color: $gray;
+
+  &:hover {
+    color: $primary;
+  }
+}
+
+
+//
+// Loading Circle
+// --------------------------------------------------------------------------
+.loading-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  margin: 2rem auto;
+  border: 2px solid transparent;
+  border-left-color: $light-gray;
+  animation: circleanimation .45s linear infinite;
+}
+
+@keyframes circleanimation {
+  from {
+    transform: rotateZ(0deg);
+  }
+
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+
+//
+// Calendar
+// --------------------------------------------------------------------------
+.flatpickr-calendar .flatpickr-months .flatpickr-month,
+.flatpickr-calendar .flatpickr-weekdays {
+  background: $primary !important;
+}
+
+//
+//
+// --------------------------------------------------------------------------
+.videocon-alert .list-group-item {
+  border-style: dotted;
+}
+
+
+//
+// Font awesome fix
+// --------------------------------------------------------------------------
+.small.fas {
+  font-weight: 900;
+}

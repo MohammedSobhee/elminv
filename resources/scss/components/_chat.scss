@@ -1,0 +1,202 @@
+.chat {
+  font-size: .9rem;
+  display: flex;
+
+  .icon-show-active {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+
+    .fas {
+      color: darken($gray, 3%);
+      cursor: pointer;
+      font-size: 1rem;
+
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+}
+
+//
+// Chat user info
+// --------------------------------------------------------------------------
+.chat-user-info {
+  position: relative;
+  top: .1rem;
+  left: 0;
+  display: inline-block;
+  margin-left: .2rem;
+  margin-bottom: .2rem;
+}
+
+//
+// Avatars
+// --------------------------------------------------------------------------
+.chat .avatar,
+.chat .avatar-placeholder {
+  position: relative;
+  top: .2rem;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+}
+
+.chat .avatar-placeholder {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  color: $nav-header-text-alt-color;
+  text-align: center;
+  padding-top: .2rem;
+  font-size: .7rem;
+  border-radius: 50%;
+  background-color: $faded-primary;
+}
+
+
+
+//
+// Chat list multiselect
+// --------------------------------------------------------------------------
+.chat-multiselect {
+  .multiselect__tags {
+    background-color: $white-gray;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-color: $bootstrap-border-color;
+  }
+
+  .multiselect__spinner,
+  .multiselect__single,
+  .multiselect__input {
+    color: $medium-gray;
+    background-color: $white-gray;
+  }
+
+  &-rounded .multiselect__tags {
+    border-bottom-right-radius: $global-radius;
+  }
+
+  &-force-rounded {
+    .multiselect__tags {
+      background-color: $white;
+      border-radius: $global-radius !important;
+    }
+
+    .multiselect__spinner,
+    .multiselect__single,
+    .multiselect__input {
+      color: $black;
+      background-color: $white;
+    }
+  }
+}
+
+//
+// Chat Body
+// --------------------------------------------------------------------------
+.chat-body {
+  position: relative;
+
+  // &.popup {
+  //   min-height: 80vh;
+  // }
+}
+
+.chat-message {
+  padding-left: 33px;
+}
+
+.chat-log-shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: $global-radius;
+  width: 100%;
+  height: 3rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 0) 100%);
+}
+
+.chat-right-border {
+  border-right: solid 1px $bootstrap-border-color;
+}
+
+//
+// Chat Log
+// --------------------------------------------------------------------------
+.chat-log {
+  height: 400px;
+  overflow-y: scroll;
+  margin-bottom: 0;
+
+  &.popup {
+    height: 585px;
+  }
+
+  // @include media-breakpoint-down(sm) {
+  //   height: 100vh;
+  // }
+
+  &-message {
+    padding: .3rem 2.5rem .3rem 1rem;
+
+    &:last-of-type {
+      padding-bottom: .75rem;
+    }
+
+  }
+}
+
+//
+// Chat Input
+// --------------------------------------------------------------------------
+.chat-input {
+  position: relative;
+  padding: .75rem;
+  background-color: $white-gray;
+  border-top: solid 1px $bootstrap-border-color;
+  box-shadow: 0 -2px 2px 0 rgba(222, 226, 230, .5);
+  border-radius: 0 0 $global-radius $global-radius;
+
+  textarea {
+    color: darken($dark-gray, 10%);
+  }
+}
+
+.chat-is-typing {
+  color: darken($gray, 6%);
+  font-size: .7rem;
+  position: absolute;
+  top: -1.35rem;
+  right: .5rem;
+}
+
+.chat-active-list {
+  border-radius: 0 0 $global-radius $global-radius;
+  min-width: 10rem;
+}
+
+.btn-open-chat {
+  padding-left: .5rem;
+  padding-right: .5rem;
+}
+
+.chat-date {
+  // position: relative;
+  // top: .05rem;
+  font-size: .8rem;
+  color: $medium-gray;
+}
+
+
+.chat-delete {
+  font-size: .8rem;
+  color: $gray;
+
+  &:hover {
+    color: $danger;
+  }
+}
